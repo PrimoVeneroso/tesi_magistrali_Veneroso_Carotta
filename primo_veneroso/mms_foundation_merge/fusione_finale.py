@@ -149,10 +149,10 @@ def transformation_foundation(elemento):
 
 print("Caricamento files JSON...")
 
-with open("/home/primo/Scaricati/ICD11_progetto/mms/mms_completo.json", "r", encoding="utf-8") as f: #carico il file mms
+with open("../mms/mms_completo.json", "r", encoding="utf-8") as f: #carico il file mms
     data_mms = json.load(f)
 
-with open("/home/primo/Scaricati/ICD11_progetto/foundation/icd11_foundation_completo.json", "r", encoding="utf-8") as g: #carico il file foundation 
+with open("../foundation/icd11_foundation_completo.json", "r", encoding="utf-8") as g: #carico il file foundation 
     data_foundation = json.load(g)
 
 
