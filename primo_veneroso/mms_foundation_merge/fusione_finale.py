@@ -192,7 +192,7 @@ for mms in mms_trasformati:
         id_numerico = uri.split('/entity/')[-1].split('/')[0]
         if id_numerico in foundation_map: 
         
-            mms.update(foundation_map[id_numerico])
+            mms.update(foundation_map[id_numerico]) #aggiorno con i dati della Foundation
 
     dati_fusi.append(mms)
 
@@ -201,15 +201,6 @@ print(f"Totale elementi fusi pronti per il salvataggio: {len(dati_fusi)}")
 
 with open("fusione_con_campi_mancanti.json", "w", encoding="utf-8") as h:
     json.dump(dati_fusi, h, indent=4, ensure_ascii=False)
-
-
-# devo sostituire i link con quelli per il browsere https://icd.who.int/browse/2026-01/foundation/en#1838213761 
-# in quali campi??? 
-
-#devo creare un json con solo i campi testuali uniti
-# quali sono i campi 
-
-# devo contare i valori quanti sono vuoti o meno e più in generale quali statistiche totali 
 
 
 
