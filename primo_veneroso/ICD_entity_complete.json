@@ -1,0 +1,2658 @@
+[
+    {
+        "code": "1G40",
+        "foundation_uri": "http://id.who.int/icd/entity/622600769",
+        "mms_link": "http://id.who.int/icd/release/11/2026-01/mms/622600769",
+        "browserUrl": "https://icd.who.int/browse/2026-01/mms/en#622600769",
+        "title": "Sepsis without septic shock",
+        "fully_specified_name": "",
+        "parent_mms": [
+            "http://id.who.int/icd/release/11/2026-01/mms/293771399"
+        ],
+        "class_kind_mms": "category",
+        "definition_mms": "Sepsis is defined as a life-threatening organ dysfunction caused by a dysregulated host response to infection.",
+        "inclusion_mms": [],
+        "exclusion_mms": [
+            {
+                "title": "Septicaemia",
+                "foundationReference": "http://id.who.int/icd/entity/2093238381"
+            },
+            {
+                "title": "Sepsis of fetus or newborn",
+                "foundationReference": "http://id.who.int/icd/entity/381388700"
+            }
+        ],
+        "index_term_synonyms": [
+            {
+                "title": "Sepsis without septic shock",
+                "foundationReference": ""
+            },
+            {
+                "title": "sepsis without septic shock with known organism",
+                "foundationReference": ""
+            },
+            {
+                "title": "Sepsis-associated hypotension",
+                "foundationReference": "http://id.who.int/icd/entity/455265504"
+            },
+            {
+                "title": "Unspecified sepsis",
+                "foundationReference": "http://id.who.int/icd/entity/1891465458"
+            },
+            {
+                "title": "general septic intoxication",
+                "foundationReference": "http://id.who.int/icd/entity/1891465458"
+            },
+            {
+                "title": "generalised sepsis",
+                "foundationReference": "http://id.who.int/icd/entity/1891465458"
+            },
+            {
+                "title": "multiple pyemic embolism",
+                "foundationReference": "http://id.who.int/icd/entity/1891465458"
+            },
+            {
+                "title": "pyemic embolism",
+                "foundationReference": "http://id.who.int/icd/entity/1891465458"
+            },
+            {
+                "title": "sepsis NOS",
+                "foundationReference": "http://id.who.int/icd/entity/1891465458"
+            },
+            {
+                "title": "septic intoxication",
+                "foundationReference": "http://id.who.int/icd/entity/1891465458"
+            },
+            {
+                "title": "systemic infection",
+                "foundationReference": "http://id.who.int/icd/entity/1891465458"
+            }
+        ],
+        "relatedEntitiesInMaternalChapter": [
+            "http://id.who.int/icd/entity/325070079",
+            "http://id.who.int/icd/entity/759302477"
+        ],
+        "relatedEntitiesInPerinatalChapter": [
+            "http://id.who.int/icd/entity/381388700"
+        ],
+        "codingNote": "Any type of infection - bacterial, viral, fungal or protozoal, can cause sepsis and must be coded as well. When the site of infection is unknown, select a code for Infection of unspecified site by organism followed by the appropriate code for sepsis.",
+        "foundationChildElsewhere": [
+            {
+                "title": "Viral sepsis without mention of septic shock",
+                "foundationReference": "http://id.who.int/icd/entity/1375378681"
+            },
+            {
+                "title": "Fungal sepsis without mention of septic shock",
+                "foundationReference": "http://id.who.int/icd/entity/513367650"
+            }
+        ],
+        "postcoordination_scale": [
+            {
+                "@id": "http://id.who.int/icd/release/11/2026-01/mms/622600769/postcoordinationScale/associatedWith",
+                "axisName": "http://id.who.int/icd/schema/associatedWith",
+                "requiredPostcoordination": "false",
+                "allowMultipleValues": "AllowAlways",
+                "scaleEntity": [
+                    "http://id.who.int/icd/release/11/2026-01/mms/1458683894",
+                    "http://id.who.int/icd/release/11/2026-01/mms/74527684",
+                    "http://id.who.int/icd/release/11/2026-01/mms/370028006",
+                    "http://id.who.int/icd/release/11/2026-01/mms/508643963",
+                    "http://id.who.int/icd/release/11/2026-01/mms/761526554",
+                    "http://id.who.int/icd/release/11/2026-01/mms/243925837",
+                    "http://id.who.int/icd/release/11/2026-01/mms/1882742628",
+                    "http://id.who.int/icd/release/11/2026-01/mms/460401849",
+                    "http://id.who.int/icd/release/11/2026-01/mms/1642025150",
+                    "http://id.who.int/icd/release/11/2026-01/mms/1162198017",
+                    "http://id.who.int/icd/release/11/2026-01/mms/431804121"
+                ]
+            },
+            {
+                "@id": "http://id.who.int/icd/release/11/2026-01/mms/622600769/postcoordinationScale/hasCausingCondition",
+                "axisName": "http://id.who.int/icd/schema/hasCausingCondition",
+                "requiredPostcoordination": "true",
+                "allowMultipleValues": "AllowAlways",
+                "scaleEntity": [
+                    "http://id.who.int/icd/release/11/2026-01/mms/588616678",
+                    "http://id.who.int/icd/release/11/2026-01/mms/1904876434",
+                    "http://id.who.int/icd/release/11/2026-01/mms/979278646",
+                    "http://id.who.int/icd/release/11/2026-01/mms/1539889147",
+                    "http://id.who.int/icd/release/11/2026-01/mms/1412960686",
+                    "http://id.who.int/icd/release/11/2026-01/mms/1596449540",
+                    "http://id.who.int/icd/release/11/2026-01/mms/1321303663",
+                    "http://id.who.int/icd/release/11/2026-01/mms/516585689",
+                    "http://id.who.int/icd/release/11/2026-01/mms/520429137",
+                    "http://id.who.int/icd/release/11/2026-01/mms/1000704511",
+                    "http://id.who.int/icd/release/11/2026-01/mms/1104303944",
+                    "http://id.who.int/icd/release/11/2026-01/mms/684930313",
+                    "http://id.who.int/icd/release/11/2026-01/mms/1959883044",
+                    "http://id.who.int/icd/release/11/2026-01/mms/921595235",
+                    "http://id.who.int/icd/release/11/2026-01/mms/1251496839",
+                    "http://id.who.int/icd/release/11/2026-01/mms/237422666",
+                    "http://id.who.int/icd/release/11/2026-01/mms/145723401",
+                    "http://id.who.int/icd/release/11/2026-01/mms/985510409",
+                    "http://id.who.int/icd/release/11/2026-01/mms/1646490591",
+                    "http://id.who.int/icd/release/11/2026-01/mms/1913468488",
+                    "http://id.who.int/icd/release/11/2026-01/mms/2055968951",
+                    "http://id.who.int/icd/release/11/2026-01/mms/1438584733",
+                    "http://id.who.int/icd/release/11/2026-01/mms/132287989",
+                    "http://id.who.int/icd/release/11/2026-01/mms/1326582778",
+                    "http://id.who.int/icd/release/11/2026-01/mms/390527954",
+                    "http://id.who.int/icd/release/11/2026-01/mms/1802307036",
+                    "http://id.who.int/icd/release/11/2026-01/mms/1866587875",
+                    "http://id.who.int/icd/release/11/2026-01/mms/1676389165",
+                    "http://id.who.int/icd/release/11/2026-01/mms/547567937",
+                    "http://id.who.int/icd/release/11/2026-01/mms/1357848258",
+                    "http://id.who.int/icd/release/11/2026-01/mms/255141529",
+                    "http://id.who.int/icd/release/11/2026-01/mms/1435254666/unspecified",
+                    "http://id.who.int/icd/release/11/2026-01/mms/1760597414",
+                    "http://id.who.int/icd/release/11/2026-01/mms/458687859",
+                    "http://id.who.int/icd/release/11/2026-01/mms/1965146397",
+                    "http://id.who.int/icd/release/11/2026-01/mms/2098808565",
+                    "http://id.who.int/icd/release/11/2026-01/mms/1323682030",
+                    "http://id.who.int/icd/release/11/2026-01/mms/40398753",
+                    "http://id.who.int/icd/release/11/2026-01/mms/2071113448",
+                    "http://id.who.int/icd/release/11/2026-01/mms/775356003",
+                    "http://id.who.int/icd/release/11/2026-01/mms/1351188281",
+                    "http://id.who.int/icd/release/11/2026-01/mms/1824134974",
+                    "http://id.who.int/icd/release/11/2026-01/mms/763951483",
+                    "http://id.who.int/icd/release/11/2026-01/mms/410058129",
+                    "http://id.who.int/icd/release/11/2026-01/mms/455330172",
+                    "http://id.who.int/icd/release/11/2026-01/mms/216184590",
+                    "http://id.who.int/icd/release/11/2026-01/mms/2058491071",
+                    "http://id.who.int/icd/release/11/2026-01/mms/441183088",
+                    "http://id.who.int/icd/release/11/2026-01/mms/1848472780",
+                    "http://id.who.int/icd/release/11/2026-01/mms/911707612"
+                ]
+            }
+        ],
+        "browserUrl_foundation": "https://icd.who.int/browse/2026-01/foundation/en#622600769",
+        "fully_specified_name_foundation": "",
+        "long_definition_foundation": "",
+        "parent_foundation": [
+            "http://id.who.int/icd/entity/293771399"
+        ],
+        "synonyms_foundation": [
+            "sepsis without septic shock with known organism"
+        ]
+    },
+    {
+        "code": "BA02",
+        "foundation_uri": "http://id.who.int/icd/entity/1015872326",
+        "mms_link": "http://id.who.int/icd/release/11/2026-01/mms/1015872326",
+        "browserUrl": "https://icd.who.int/browse/2026-01/mms/en#1015872326",
+        "title": "Hypertensive renal disease",
+        "fully_specified_name": "",
+        "parent_mms": [
+            "http://id.who.int/icd/release/11/2026-01/mms/924915526"
+        ],
+        "class_kind_mms": "category",
+        "definition_mms": "Hypertensive renal disease is a medical condition referring to damage to the kidney due to chronic high blood pressure.",
+        "inclusion_mms": [
+            "hypertensive nephropathy"
+        ],
+        "exclusion_mms": [
+            {
+                "title": "Secondary hypertension",
+                "foundationReference": "http://id.who.int/icd/entity/1331849426"
+            }
+        ],
+        "index_term_synonyms": [
+            {
+                "title": "Hypertensive renal disease",
+                "foundationReference": ""
+            },
+            {
+                "title": "hypertension with nephropathy",
+                "foundationReference": ""
+            },
+            {
+                "title": "hypertension with renal disease",
+                "foundationReference": ""
+            },
+            {
+                "title": "hypertensive nephropathy",
+                "foundationReference": ""
+            },
+            {
+                "title": "Hypertensive renal disease with renal failure",
+                "foundationReference": "http://id.who.int/icd/entity/575338965"
+            },
+            {
+                "title": "Hypertensive renal failure",
+                "foundationReference": "http://id.who.int/icd/entity/575338965"
+            },
+            {
+                "title": "hypertensive chronic renal insufficiency",
+                "foundationReference": "http://id.who.int/icd/entity/575338965"
+            },
+            {
+                "title": "hypertensive renal sclerosis with renal failure",
+                "foundationReference": "http://id.who.int/icd/entity/575338965"
+            },
+            {
+                "title": "kidney hypertension with renal failure",
+                "foundationReference": "http://id.who.int/icd/entity/575338965"
+            },
+            {
+                "title": "renal insufficiency with hypertension",
+                "foundationReference": "http://id.who.int/icd/entity/575338965"
+            },
+            {
+                "title": "Hypertensive uraemia",
+                "foundationReference": "http://id.who.int/icd/entity/1704023753"
+            },
+            {
+                "title": "Hypertensive renal disease without renal failure",
+                "foundationReference": "http://id.who.int/icd/entity/1233564311"
+            },
+            {
+                "title": "Hypertensive renal disease NOS",
+                "foundationReference": "http://id.who.int/icd/entity/1233564311"
+            },
+            {
+                "title": "arteriosclerotic kidney",
+                "foundationReference": "http://id.who.int/icd/entity/1233564311"
+            },
+            {
+                "title": "arteriosclerotic kidney disease",
+                "foundationReference": "http://id.who.int/icd/entity/1233564311"
+            },
+            {
+                "title": "renal arteriosclerosis",
+                "foundationReference": "http://id.who.int/icd/entity/1233564311"
+            },
+            {
+                "title": "renal arteriosclerotic disease",
+                "foundationReference": "http://id.who.int/icd/entity/1233564311"
+            },
+            {
+                "title": "renal sclerosis, unspecified",
+                "foundationReference": "http://id.who.int/icd/entity/1233564311"
+            },
+            {
+                "title": "renal vascular insufficiency",
+                "foundationReference": "http://id.who.int/icd/entity/1233564311"
+            },
+            {
+                "title": "renovascular disease",
+                "foundationReference": "http://id.who.int/icd/entity/1233564311"
+            },
+            {
+                "title": "sclerosis of kidney",
+                "foundationReference": "http://id.who.int/icd/entity/1233564311"
+            },
+            {
+                "title": "sclerotic kidney",
+                "foundationReference": "http://id.who.int/icd/entity/1233564311"
+            },
+            {
+                "title": "Arteriolar nephrosclerosis",
+                "foundationReference": "http://id.who.int/icd/entity/1771347021"
+            },
+            {
+                "title": "arterionephrosclerosis",
+                "foundationReference": "http://id.who.int/icd/entity/1771347021"
+            },
+            {
+                "title": "arteriosclerotic nephrosclerosis",
+                "foundationReference": "http://id.who.int/icd/entity/1771347021"
+            },
+            {
+                "title": "chronic nephrosclerosis",
+                "foundationReference": "http://id.who.int/icd/entity/1771347021"
+            },
+            {
+                "title": "hyaline arteriolar nephrosclerosis",
+                "foundationReference": "http://id.who.int/icd/entity/1771347021"
+            },
+            {
+                "title": "Arteriosclerotic Bright disease",
+                "foundationReference": "http://id.who.int/icd/entity/1035414356"
+            },
+            {
+                "title": "arteriolar nephritis",
+                "foundationReference": "http://id.who.int/icd/entity/1035414356"
+            },
+            {
+                "title": "arteriosclerotic nephritis",
+                "foundationReference": "http://id.who.int/icd/entity/1035414356"
+            },
+            {
+                "title": "interstitial arteriosclerotic nephritis",
+                "foundationReference": "http://id.who.int/icd/entity/1035414356"
+            },
+            {
+                "title": "Arteriolar sclerosis of renal arterioles",
+                "foundationReference": "http://id.who.int/icd/entity/423589168"
+            },
+            {
+                "title": "arteriosclerosis of renal arterioles",
+                "foundationReference": "http://id.who.int/icd/entity/423589168"
+            },
+            {
+                "title": "renal arterioles arteriosclerosis",
+                "foundationReference": "http://id.who.int/icd/entity/423589168"
+            },
+            {
+                "title": "renal arterioles arteriosclerotic disease",
+                "foundationReference": "http://id.who.int/icd/entity/423589168"
+            },
+            {
+                "title": "Chronic arteriosclerotic nephritis",
+                "foundationReference": "http://id.who.int/icd/entity/1608753233"
+            },
+            {
+                "title": "Chronic kidney disease due to hypertension",
+                "foundationReference": "http://id.who.int/icd/entity/902024598"
+            },
+            {
+                "title": "Glomerular diseases due to hypertension",
+                "foundationReference": "http://id.who.int/icd/entity/772622990"
+            },
+            {
+                "title": "Nephrosclerosis",
+                "foundationReference": "http://id.who.int/icd/entity/1878591797"
+            },
+            {
+                "title": "Unspecified contracted kidney due to hypertension",
+                "foundationReference": "http://id.who.int/icd/entity/1621457207"
+            }
+        ],
+        "relatedEntitiesInMaternalChapter": [
+            "http://id.who.int/icd/entity/1388356450",
+            "http://id.who.int/icd/entity/931884792"
+        ],
+        "relatedEntitiesInPerinatalChapter": [
+            "http://id.who.int/icd/entity/1910517058"
+        ],
+        "codingNote": "",
+        "foundationChildElsewhere": [
+            {
+                "title": "Pre-existing hypertensive renal disease complicating pregnancy, childbirth or the puerperium",
+                "foundationReference": "http://id.who.int/icd/entity/1388356450"
+            },
+            {
+                "title": "Pre-existing hypertensive heart and renal disease complicating pregnancy, childbirth or the puerperium",
+                "foundationReference": "http://id.who.int/icd/entity/931884792"
+            }
+        ],
+        "postcoordination_scale": [
+            {
+                "@id": "http://id.who.int/icd/release/11/2026-01/mms/1015872326/postcoordinationScale/hasManifestation",
+                "axisName": "http://id.who.int/icd/schema/hasManifestation",
+                "requiredPostcoordination": "false",
+                "allowMultipleValues": "AllowAlways",
+                "scaleEntity": [
+                    "http://id.who.int/icd/release/11/2026-01/mms/1002963291",
+                    "http://id.who.int/icd/release/11/2026-01/mms/761526554"
+                ]
+            }
+        ],
+        "browserUrl_foundation": "https://icd.who.int/browse/2026-01/foundation/en#1015872326",
+        "fully_specified_name_foundation": "",
+        "long_definition_foundation": "",
+        "parent_foundation": [
+            "http://id.who.int/icd/entity/924915526",
+            "http://id.who.int/icd/entity/1932345217"
+        ],
+        "synonyms_foundation": [
+            "hypertension with nephropathy",
+            "hypertension with renal disease",
+            "hypertensive nephropathy"
+        ]
+    },
+    {
+        "code": "DD51",
+        "foundation_uri": "http://id.who.int/icd/entity/474718032",
+        "mms_link": "http://id.who.int/icd/release/11/2026-01/mms/474718032",
+        "browserUrl": "https://icd.who.int/browse/2026-01/mms/en#474718032",
+        "title": "Inguinal hernia",
+        "fully_specified_name": "",
+        "parent_mms": [
+            "http://id.who.int/icd/release/11/2026-01/mms/1294458332"
+        ],
+        "class_kind_mms": "category",
+        "definition_mms": "A hernia occurs when part of an internal organ bulges through a weak area of muscle. Most hernias occur in the abdomen wall. Inguinal hernia is the most common type and is in the groin.",
+        "inclusion_mms": [
+            "bubonocele",
+            "scrotal hernia"
+        ],
+        "exclusion_mms": [],
+        "index_term_synonyms": [
+            {
+                "title": "Inguinal hernia",
+                "foundationReference": ""
+            },
+            {
+                "title": "IH - [inguinal hernia]",
+                "foundationReference": ""
+            },
+            {
+                "title": "bubonocele",
+                "foundationReference": ""
+            },
+            {
+                "title": "direct inguinal hernia",
+                "foundationReference": ""
+            },
+            {
+                "title": "indirect inguinal hernia",
+                "foundationReference": ""
+            },
+            {
+                "title": "oblique inguinal hernia",
+                "foundationReference": ""
+            },
+            {
+                "title": "scrotal hernia",
+                "foundationReference": ""
+            },
+            {
+                "title": "Bilateral inguinal hernia, with obstruction, without gangrene",
+                "foundationReference": "http://id.who.int/icd/entity/1489767637"
+            },
+            {
+                "title": "bilateral inguinal hernia with obstruction",
+                "foundationReference": "http://id.who.int/icd/entity/1489767637"
+            },
+            {
+                "title": "bilateral inguinal hernia with obstruction but no gangrene",
+                "foundationReference": "http://id.who.int/icd/entity/1489767637"
+            },
+            {
+                "title": "bilateral inguinal hernia with obstruction, without mention of gangrene",
+                "foundationReference": "http://id.who.int/icd/entity/1489767637"
+            },
+            {
+                "title": "bilateral obstructed inguinal hernia",
+                "foundationReference": "http://id.who.int/icd/entity/1489767637"
+            },
+            {
+                "title": "bilateral obstructed recurrent inguinal hernia",
+                "foundationReference": "http://id.who.int/icd/entity/1489767637"
+            },
+            {
+                "title": "obstructive bilateral inguinal hernia",
+                "foundationReference": "http://id.who.int/icd/entity/1489767637"
+            },
+            {
+                "title": "Bilateral inguinal hernia, with obstruction, without gangrene, not specified as recurrent",
+                "foundationReference": "http://id.who.int/icd/entity/1953831318"
+            },
+            {
+                "title": "Bilateral inguinal hernia, with obstruction, without gangrene, recurrent",
+                "foundationReference": "http://id.who.int/icd/entity/289330180"
+            },
+            {
+                "title": "bilateral recurrent inguinal hernia with obstruction but no gangrene",
+                "foundationReference": "http://id.who.int/icd/entity/289330180"
+            },
+            {
+                "title": "recurrent bilateral inguinal hernia, with obstruction, without mention of gangrene",
+                "foundationReference": "http://id.who.int/icd/entity/289330180"
+            },
+            {
+                "title": "Bilateral inguinal hernia, with gangrene",
+                "foundationReference": "http://id.who.int/icd/entity/1032307009"
+            },
+            {
+                "title": "bilateral inguinal hernia, with gangrene NOS",
+                "foundationReference": "http://id.who.int/icd/entity/1032307009"
+            },
+            {
+                "title": "gangrenous bilateral inguinal hernia",
+                "foundationReference": "http://id.who.int/icd/entity/1032307009"
+            },
+            {
+                "title": "Bilateral inguinal hernia, with gangrene, not specified as recurrent",
+                "foundationReference": "http://id.who.int/icd/entity/598757775"
+            },
+            {
+                "title": "Bilateral inguinal hernia, with gangrene, recurrent",
+                "foundationReference": "http://id.who.int/icd/entity/1190894619"
+            },
+            {
+                "title": "Bilateral inguinal hernia, without obstruction or gangrene",
+                "foundationReference": "http://id.who.int/icd/entity/1227526590"
+            },
+            {
+                "title": "Bilateral inguinal hernia NOS",
+                "foundationReference": "http://id.who.int/icd/entity/1227526590"
+            },
+            {
+                "title": "bilateral direct inguinal hernia",
+                "foundationReference": "http://id.who.int/icd/entity/1227526590"
+            },
+            {
+                "title": "bilateral external inguinal hernia",
+                "foundationReference": "http://id.who.int/icd/entity/1227526590"
+            },
+            {
+                "title": "bilateral indirect inguinal hernia",
+                "foundationReference": "http://id.who.int/icd/entity/1227526590"
+            },
+            {
+                "title": "bilateral inguinal hernia",
+                "foundationReference": "http://id.who.int/icd/entity/1227526590"
+            },
+            {
+                "title": "bilateral internal inguinal hernia",
+                "foundationReference": "http://id.who.int/icd/entity/1227526590"
+            },
+            {
+                "title": "bilateral oblique inguinal hernia",
+                "foundationReference": "http://id.who.int/icd/entity/1227526590"
+            },
+            {
+                "title": "bilateral sliding inguinal hernia",
+                "foundationReference": "http://id.who.int/icd/entity/1227526590"
+            },
+            {
+                "title": "double inguinal hernia",
+                "foundationReference": "http://id.who.int/icd/entity/1227526590"
+            },
+            {
+                "title": "Bilateral inguinal hernia, without obstruction or gangrene, not specified as recurrent",
+                "foundationReference": "http://id.who.int/icd/entity/604010076"
+            },
+            {
+                "title": "Bilateral inguinal hernia, without obstruction or gangrene, recurrent",
+                "foundationReference": "http://id.who.int/icd/entity/1095482318"
+            },
+            {
+                "title": "bilateral recurrent inguinal hernia",
+                "foundationReference": "http://id.who.int/icd/entity/1095482318"
+            },
+            {
+                "title": "Unilateral or unspecified inguinal hernia, with obstruction, without gangrene",
+                "foundationReference": "http://id.who.int/icd/entity/744578092"
+            },
+            {
+                "title": "incarcerated unilateral inguinal hernia without gangrene",
+                "foundationReference": "http://id.who.int/icd/entity/744578092"
+            },
+            {
+                "title": "inguinal hernia with obstruction",
+                "foundationReference": "http://id.who.int/icd/entity/744578092"
+            },
+            {
+                "title": "irreducible unilateral inguinal hernia without gangrene",
+                "foundationReference": "http://id.who.int/icd/entity/744578092"
+            },
+            {
+                "title": "obstructed direct inguinal hernia",
+                "foundationReference": "http://id.who.int/icd/entity/744578092"
+            },
+            {
+                "title": "obstructed external inguinal hernia",
+                "foundationReference": "http://id.who.int/icd/entity/744578092"
+            },
+            {
+                "title": "obstructed indirect inguinal hernia",
+                "foundationReference": "http://id.who.int/icd/entity/744578092"
+            },
+            {
+                "title": "obstructed inguinal hernia",
+                "foundationReference": "http://id.who.int/icd/entity/744578092"
+            },
+            {
+                "title": "obstructed internal inguinal hernia",
+                "foundationReference": "http://id.who.int/icd/entity/744578092"
+            },
+            {
+                "title": "obstructed oblique inguinal hernia",
+                "foundationReference": "http://id.who.int/icd/entity/744578092"
+            },
+            {
+                "title": "obstructed sliding inguinal hernia",
+                "foundationReference": "http://id.who.int/icd/entity/744578092"
+            },
+            {
+                "title": "strangulated unilateral Inguinal hernia without gangrene",
+                "foundationReference": "http://id.who.int/icd/entity/744578092"
+            },
+            {
+                "title": "unilateral inguinal hernia causing obstruction without gangrene",
+                "foundationReference": "http://id.who.int/icd/entity/744578092"
+            },
+            {
+                "title": "unilateral inguinal hernia with obstruction but no gangrene",
+                "foundationReference": "http://id.who.int/icd/entity/744578092"
+            },
+            {
+                "title": "unilateral obstructed inguinal hernia",
+                "foundationReference": "http://id.who.int/icd/entity/744578092"
+            },
+            {
+                "title": "unilateral or unspecified inguinal hernia with obstruction without mention of gangrene, not specified as recurrent",
+                "foundationReference": "http://id.who.int/icd/entity/744578092"
+            },
+            {
+                "title": "unilateral or unspecified inguinal hernia with obstruction, without mention of gangrene",
+                "foundationReference": "http://id.who.int/icd/entity/744578092"
+            },
+            {
+                "title": "Unilateral or unspecified inguinal hernia, with obstruction, without gangrene, not specified as recurrent",
+                "foundationReference": "http://id.who.int/icd/entity/1942306371"
+            },
+            {
+                "title": "Unilateral or unspecified inguinal hernia, with obstruction, without gangrene, recurrent",
+                "foundationReference": "http://id.who.int/icd/entity/378467287"
+            },
+            {
+                "title": "unilateral obstructed recurrent inguinal hernia",
+                "foundationReference": "http://id.who.int/icd/entity/378467287"
+            },
+            {
+                "title": "unilateral recurrent inguinal hernia with obstruction but no gangrene",
+                "foundationReference": "http://id.who.int/icd/entity/378467287"
+            },
+            {
+                "title": "Unilateral or unspecified inguinal hernia, with gangrene",
+                "foundationReference": "http://id.who.int/icd/entity/1603260352"
+            },
+            {
+                "title": "Inguinal hernia NOS with gangrene",
+                "foundationReference": "http://id.who.int/icd/entity/1603260352"
+            },
+            {
+                "title": "gangrenous direct inguinal hernia",
+                "foundationReference": "http://id.who.int/icd/entity/1603260352"
+            },
+            {
+                "title": "gangrenous external inguinal hernia",
+                "foundationReference": "http://id.who.int/icd/entity/1603260352"
+            },
+            {
+                "title": "gangrenous indirect inguinal hernia",
+                "foundationReference": "http://id.who.int/icd/entity/1603260352"
+            },
+            {
+                "title": "gangrenous inguinal hernia",
+                "foundationReference": "http://id.who.int/icd/entity/1603260352"
+            },
+            {
+                "title": "gangrenous internal inguinal hernia",
+                "foundationReference": "http://id.who.int/icd/entity/1603260352"
+            },
+            {
+                "title": "gangrenous sliding inguinal hernia",
+                "foundationReference": "http://id.who.int/icd/entity/1603260352"
+            },
+            {
+                "title": "inguinal hernia with gangrene",
+                "foundationReference": "http://id.who.int/icd/entity/1603260352"
+            },
+            {
+                "title": "unilateral inguinal hernia with gangrene",
+                "foundationReference": "http://id.who.int/icd/entity/1603260352"
+            },
+            {
+                "title": "unilateral inguinal hernia with gangrene NOS",
+                "foundationReference": "http://id.who.int/icd/entity/1603260352"
+            },
+            {
+                "title": "Unilateral or unspecified inguinal hernia, with gangrene, not specified as recurrent",
+                "foundationReference": "http://id.who.int/icd/entity/267305037"
+            },
+            {
+                "title": "Unilateral or unspecified inguinal hernia, with gangrene, recurrent",
+                "foundationReference": "http://id.who.int/icd/entity/1789201881"
+            },
+            {
+                "title": "recurrent inguinal hernia with gangrene",
+                "foundationReference": "http://id.who.int/icd/entity/1789201881"
+            },
+            {
+                "title": "Unilateral or unspecified inguinal hernia, without obstruction or gangrene",
+                "foundationReference": "http://id.who.int/icd/entity/855656343"
+            },
+            {
+                "title": "Inguinal hernia NOS",
+                "foundationReference": "http://id.who.int/icd/entity/855656343"
+            },
+            {
+                "title": "external inguinal hernia",
+                "foundationReference": "http://id.who.int/icd/entity/855656343"
+            },
+            {
+                "title": "funicular hernia of spermatic cord",
+                "foundationReference": "http://id.who.int/icd/entity/855656343"
+            },
+            {
+                "title": "funicular indirect inguinal hernia",
+                "foundationReference": "http://id.who.int/icd/entity/855656343"
+            },
+            {
+                "title": "internal inguinal hernia",
+                "foundationReference": "http://id.who.int/icd/entity/855656343"
+            },
+            {
+                "title": "sliding hernia",
+                "foundationReference": "http://id.who.int/icd/entity/855656343"
+            },
+            {
+                "title": "sliding inguinal hernia",
+                "foundationReference": "http://id.who.int/icd/entity/855656343"
+            },
+            {
+                "title": "unilateral inguinal hernia",
+                "foundationReference": "http://id.who.int/icd/entity/855656343"
+            },
+            {
+                "title": "Unilateral or unspecified inguinal hernia, without obstruction or gangrene, not specified as recurrent",
+                "foundationReference": "http://id.who.int/icd/entity/267838588"
+            },
+            {
+                "title": "Unilateral or unspecified inguinal hernia, without obstruction or gangrene, recurrent",
+                "foundationReference": "http://id.who.int/icd/entity/1790781934"
+            },
+            {
+                "title": "recurrent inguinal hernia",
+                "foundationReference": "http://id.who.int/icd/entity/1790781934"
+            },
+            {
+                "title": "unilateral recurrent inguinal hernia",
+                "foundationReference": "http://id.who.int/icd/entity/1790781934"
+            }
+        ],
+        "relatedEntitiesInMaternalChapter": [
+            "http://id.who.int/icd/entity/1135143938"
+        ],
+        "relatedEntitiesInPerinatalChapter": [
+            "http://id.who.int/icd/entity/494951911"
+        ],
+        "codingNote": "Use additional codes, if desired, to identify complications such as obstruction or gangrene.",
+        "foundationChildElsewhere": [],
+        "postcoordination_scale": [
+            {
+                "@id": "http://id.who.int/icd/release/11/2026-01/mms/474718032/postcoordinationScale/laterality",
+                "axisName": "http://id.who.int/icd/schema/laterality",
+                "requiredPostcoordination": "false",
+                "allowMultipleValues": "NotAllowed",
+                "scaleEntity": [
+                    "http://id.who.int/icd/release/11/2026-01/mms/627678743",
+                    "http://id.who.int/icd/release/11/2026-01/mms/271422288",
+                    "http://id.who.int/icd/release/11/2026-01/mms/876572005",
+                    "http://id.who.int/icd/release/11/2026-01/mms/1038788978"
+                ]
+            },
+            {
+                "@id": "http://id.who.int/icd/release/11/2026-01/mms/474718032/postcoordinationScale/hasManifestation",
+                "axisName": "http://id.who.int/icd/schema/hasManifestation",
+                "requiredPostcoordination": "false",
+                "allowMultipleValues": "AllowAlways",
+                "scaleEntity": [
+                    "http://id.who.int/icd/release/11/2026-01/mms/1020615731"
+                ]
+            },
+            {
+                "@id": "http://id.who.int/icd/release/11/2026-01/mms/474718032/postcoordinationScale/temporalPatternAndOnset",
+                "axisName": "http://id.who.int/icd/schema/temporalPatternAndOnset",
+                "requiredPostcoordination": "false",
+                "allowMultipleValues": "NotAllowed",
+                "scaleEntity": [
+                    "http://id.who.int/icd/release/11/2026-01/mms/1721353160"
+                ]
+            }
+        ],
+        "browserUrl_foundation": "https://icd.who.int/browse/2026-01/foundation/en#474718032",
+        "fully_specified_name_foundation": "",
+        "long_definition_foundation": "Inguinal hernia is the disease with abnormal passage of an internal abdominal organ or structure through the inguinal canal. The spectrum of the disease is very broad, manifesting incidental findings to symptomatic hernias showing groin pain to surgical emergencies like incarceration or strangulation of hernia sac contents. The disease can be classified by the location of herniation as indirect inguinal hernia and direct inguinal hernia. Indirect hernias occur through the internal inguinal ring and common in children and young adults, but direct hernias occur through defects in the abdominal wall in Hesselbach's triangle and are common in adults.",
+        "parent_foundation": [
+            "http://id.who.int/icd/entity/1083810818"
+        ],
+        "synonyms_foundation": [
+            "IH - [inguinal hernia]",
+            "bubonocele",
+            "direct inguinal hernia",
+            "indirect inguinal hernia",
+            "oblique inguinal hernia",
+            "scrotal hernia"
+        ]
+    },
+    {
+        "code": "1D80.2",
+        "foundation_uri": "http://id.who.int/icd/entity/1991119186",
+        "mms_link": "http://id.who.int/icd/release/11/2026-01/mms/1991119186",
+        "browserUrl": "https://icd.who.int/browse/2026-01/mms/en#1991119186",
+        "title": "Meningitis due to mumps virus",
+        "fully_specified_name": "Viral meningitis due to Mumps virus",
+        "parent_mms": [
+            "http://id.who.int/icd/release/11/2026-01/mms/1208294714"
+        ],
+        "class_kind_mms": "category",
+        "definition_mms": "A disease of the meninges, caused by an infection with mumps virus. This disease is characterised by photophobia, vomiting, fever, arthralgia, headache, stiff neck, convulsions, or seizures. This disease may also present with pale, blotchy skin or a distinctive rash. Transmission is by haematogenous spread to the meninges after inhalation of infected respiratory secretions or droplet transmission. Confirmation is by identification of mumps virus in a buccal swab or blood sample.",
+        "inclusion_mms": [
+            "mumps meningitis"
+        ],
+        "exclusion_mms": [],
+        "index_term_synonyms": [
+            {
+                "title": "Meningitis due to mumps virus",
+                "foundationReference": ""
+            },
+            {
+                "title": "mumps meningitis",
+                "foundationReference": ""
+            },
+            {
+                "title": "mumps virus meningitis",
+                "foundationReference": ""
+            },
+            {
+                "title": "Viral meningitis due to Mumps virus",
+                "foundationReference": ""
+            }
+        ],
+        "relatedEntitiesInMaternalChapter": [
+            "http://id.who.int/icd/entity/738030718"
+        ],
+        "relatedEntitiesInPerinatalChapter": [
+            "http://id.who.int/icd/entity/2071159826"
+        ],
+        "codingNote": "",
+        "foundationChildElsewhere": [],
+        "postcoordination_scale": [],
+        "browserUrl_foundation": "https://icd.who.int/browse/2026-01/foundation/en#1991119186",
+        "fully_specified_name_foundation": "Viral meningitis due to Mumps virus",
+        "long_definition_foundation": "Aseptic meningitis is the most common extra-salivary gland complication of mumps virus infection. It can occur precede, during or after mumps parotitis. In 50% percent of cases, meningitis due to mumps virus occurs in the absence of salivary gland involvement. Symptoms include headache, fever, vomiting mild nuchal rigidity and lethargy. Symptoms peak within 48 hours and resolve thereafter. Patients with symptoms that do not resolve over 7-10 days are presumed to have mumps encephalitis. Ataxia, electroencephalographic abnormalities and behavioural changes can be observed in patients after infection but should resolve after 2-3 weeks. Sensorineural hearing loss is a common complication of mumps virus infection. Vertigo can present with the onset of impaired hearing. Rare CNS complications of mumps infection include facial palsy, cerebellar ataxia, flaccid paralysis, transverse myelitis and ascending polyradiculitis.",
+        "parent_foundation": [
+            "http://id.who.int/icd/entity/1484750528",
+            "http://id.who.int/icd/entity/1208294714"
+        ],
+        "synonyms_foundation": [
+            "mumps meningitis",
+            "mumps virus meningitis"
+        ]
+    },
+    {
+        "code": "1E50.2",
+        "foundation_uri": "http://id.who.int/icd/entity/1517862018",
+        "mms_link": "http://id.who.int/icd/release/11/2026-01/mms/1517862018",
+        "browserUrl": "https://icd.who.int/browse/2026-01/mms/en#1517862018",
+        "title": "Acute hepatitis C",
+        "fully_specified_name": "Acute hepatitis C virus infection",
+        "parent_mms": [
+            "http://id.who.int/icd/release/11/2026-01/mms/1154736543"
+        ],
+        "class_kind_mms": "category",
+        "definition_mms": "Acute liver injury and inflammation caused by recent and short-term (less than 6 months) infection with hepatitis C virus (HCV). Transmission is by blood and body fluid contamination (parenteral spread) in most cases, and rarely by sexual spread or from mother to baby at the time of birth (vertical transmission). Diagnosis is confirmed by presence of recent acquisition of anti-HCV with presence of HCV RNA in serum. Clinical features occur in a minority of cases and are characterised by anorexia, nausea and fever, rarely with jaundice. A high proportion of cases (>70%) develop chronic HCV infection, with liver disease of varying severity.",
+        "inclusion_mms": [],
+        "exclusion_mms": [],
+        "index_term_synonyms": [
+            {
+                "title": "Acute hepatitis C",
+                "foundationReference": ""
+            },
+            {
+                "title": "Acute hepatitis C virus infection",
+                "foundationReference": ""
+            }
+        ],
+        "relatedEntitiesInMaternalChapter": [
+            "http://id.who.int/icd/entity/1320597992"
+        ],
+        "relatedEntitiesInPerinatalChapter": [
+            "http://id.who.int/icd/entity/1270001765"
+        ],
+        "codingNote": "",
+        "foundationChildElsewhere": [
+            {
+                "title": "Necrolytic acral erythema",
+                "foundationReference": "http://id.who.int/icd/entity/1187800629"
+            }
+        ],
+        "postcoordination_scale": [
+            {
+                "@id": "http://id.who.int/icd/release/11/2026-01/mms/1517862018/postcoordinationScale/associatedWith",
+                "axisName": "http://id.who.int/icd/schema/associatedWith",
+                "requiredPostcoordination": "false",
+                "allowMultipleValues": "AllowAlways",
+                "scaleEntity": [
+                    "http://id.who.int/icd/release/11/2026-01/mms/1975056531"
+                ]
+            }
+        ],
+        "browserUrl_foundation": "https://icd.who.int/browse/2026-01/foundation/en#1517862018",
+        "fully_specified_name_foundation": "Acute hepatitis C virus infection",
+        "long_definition_foundation": "Acute hepatitis C is acute liver injury caused by hepatitis C virus (HCV), which is a single stranded RNA virus belonging to the flavivirus family. This disease is transmitted parenterally (direct transfusion of blood and blood products, accidental or deliberated needle puncture including intravenous drug abuse, tattooing, acupuncture, and ear piercing) or by sexual contact. The majority of patients with acute hepatitis C are asymptomatic and about 70% develop chronic HCV infection, depending on age (lower in children) and severity of acute hepatitis (lower if jaundice develops).",
+        "parent_foundation": [
+            "http://id.who.int/icd/entity/1154736543"
+        ],
+        "synonyms_foundation": []
+    },
+    {
+        "code": "1E51.1",
+        "foundation_uri": "http://id.who.int/icd/entity/1615937473",
+        "mms_link": "http://id.who.int/icd/release/11/2026-01/mms/1615937473",
+        "browserUrl": "https://icd.who.int/browse/2026-01/mms/en#1615937473",
+        "title": "Chronic hepatitis C",
+        "fully_specified_name": "Chronic hepatitis C virus infection",
+        "parent_mms": [
+            "http://id.who.int/icd/release/11/2026-01/mms/1469571641"
+        ],
+        "class_kind_mms": "category",
+        "definition_mms": "A liver disease characterised by liver inflammation and fibrosis caused by more than 6 months of infection with the hepatitis C virus. Even at stage of cirrhosis there may be no symptoms. Otherwise, clinical features include fatigue and impaired quality of life, hard liver edge and complications of cirrhosis (muscle wasting, ascites, splenomegaly/portal hypertension). Chronic hepatitis C increases the risks of type 2 diabetes mellitus and cardiovascular disease, which contribute to increased all-cause mortality. Transmission is by blood and body fluid contamination, rarely by sexual transmission and from mother to baby at the time of birth (vertical transmission). Confirmation of the diagnosis is by detection of HCV RNA in the presence of a positive anti-HCV in serum.",
+        "inclusion_mms": [],
+        "exclusion_mms": [
+            {
+                "title": "Non-alcoholic fatty liver disease",
+                "foundationReference": "http://id.who.int/icd/entity/1912806631"
+            }
+        ],
+        "index_term_synonyms": [
+            {
+                "title": "Chronic hepatitis C",
+                "foundationReference": ""
+            },
+            {
+                "title": "chronic HCV - [hepatitis C virus] infection",
+                "foundationReference": ""
+            },
+            {
+                "title": "chronic type C viral hepatitis",
+                "foundationReference": ""
+            },
+            {
+                "title": "hep C NOS",
+                "foundationReference": ""
+            },
+            {
+                "title": "hepatitis C NOS",
+                "foundationReference": ""
+            },
+            {
+                "title": "hepatitis C infection NOS",
+                "foundationReference": ""
+            },
+            {
+                "title": "hepatitis C-related cirrhosis",
+                "foundationReference": ""
+            },
+            {
+                "title": "type C viral hepatitis",
+                "foundationReference": ""
+            },
+            {
+                "title": "Chronic hepatitis C virus infection",
+                "foundationReference": ""
+            },
+            {
+                "title": "Chronic hepatitis C, with cirrhosis",
+                "foundationReference": "http://id.who.int/icd/entity/128272532"
+            },
+            {
+                "title": "Chronic hepatitis C, with cirrhosis, with complications of cirrhosis",
+                "foundationReference": "http://id.who.int/icd/entity/853773053"
+            },
+            {
+                "title": "Chronic hepatitis C, with cirrhosis, without complications of cirrhosis",
+                "foundationReference": "http://id.who.int/icd/entity/274749594"
+            },
+            {
+                "title": "Chronic hepatitis C, without cirrhosis",
+                "foundationReference": "http://id.who.int/icd/entity/183910263"
+            },
+            {
+                "title": "Chronic hepatitis C, co-infected with human immunodeficiency virus",
+                "foundationReference": "http://id.who.int/icd/entity/1951721583"
+            },
+            {
+                "title": "Chronic hepatitis C, co-infected with human immunodeficiency virus, with cirrhosis",
+                "foundationReference": "http://id.who.int/icd/entity/1220121310"
+            },
+            {
+                "title": "Chronic hepatitis C, co-infected with human immunodeficiency virus, with cirrhosis, with complications of cirrhosis",
+                "foundationReference": "http://id.who.int/icd/entity/894694351"
+            },
+            {
+                "title": "Chronic hepatitis C, co-infected with human immunodeficiency virus, with cirrhosis, without complications of cirrhosis",
+                "foundationReference": "http://id.who.int/icd/entity/484821848"
+            },
+            {
+                "title": "Chronic hepatitis C, co-infected with human immunodeficiency virus, without cirrhosis",
+                "foundationReference": "http://id.who.int/icd/entity/1173022013"
+            }
+        ],
+        "relatedEntitiesInMaternalChapter": [
+            "http://id.who.int/icd/entity/1320597992"
+        ],
+        "relatedEntitiesInPerinatalChapter": [
+            "http://id.who.int/icd/entity/1270001765"
+        ],
+        "codingNote": "",
+        "foundationChildElsewhere": [
+            {
+                "title": "Chronic hepatitis B, co-infected with hepatitis C virus",
+                "foundationReference": "http://id.who.int/icd/entity/1855566176"
+            },
+            {
+                "title": "Chronic hepatitis B, co-infected with hepatitis C virus and hepatitis D virus",
+                "foundationReference": "http://id.who.int/icd/entity/1730315877"
+            }
+        ],
+        "postcoordination_scale": [
+            {
+                "@id": "http://id.who.int/icd/release/11/2026-01/mms/1615937473/postcoordinationScale/hasManifestation",
+                "axisName": "http://id.who.int/icd/schema/hasManifestation",
+                "requiredPostcoordination": "false",
+                "allowMultipleValues": "AllowAlways",
+                "scaleEntity": [
+                    "http://id.who.int/icd/release/11/2026-01/mms/572581721",
+                    "http://id.who.int/icd/release/11/2026-01/mms/1781315693"
+                ]
+            },
+            {
+                "@id": "http://id.who.int/icd/release/11/2026-01/mms/1615937473/postcoordinationScale/associatedWith",
+                "axisName": "http://id.who.int/icd/schema/associatedWith",
+                "requiredPostcoordination": "false",
+                "allowMultipleValues": "AllowAlways",
+                "scaleEntity": [
+                    "http://id.who.int/icd/release/11/2026-01/mms/1975056531"
+                ]
+            }
+        ],
+        "browserUrl_foundation": "https://icd.who.int/browse/2026-01/foundation/en#1615937473",
+        "fully_specified_name_foundation": "Chronic hepatitis C virus infection",
+        "long_definition_foundation": "",
+        "parent_foundation": [
+            "http://id.who.int/icd/entity/1469571641"
+        ],
+        "synonyms_foundation": [
+            "chronic HCV - [hepatitis C virus] infection",
+            "chronic type C viral hepatitis",
+            "hep C NOS",
+            "hepatitis C NOS",
+            "hepatitis C infection NOS",
+            "hepatitis C-related cirrhosis",
+            "type C viral hepatitis"
+        ]
+    },
+    {
+        "code": "5A11",
+        "foundation_uri": "http://id.who.int/icd/entity/119724091",
+        "mms_link": "http://id.who.int/icd/release/11/2026-01/mms/119724091",
+        "browserUrl": "https://icd.who.int/browse/2026-01/mms/en#119724091",
+        "title": "Type 2 diabetes mellitus",
+        "fully_specified_name": "",
+        "parent_mms": [
+            "http://id.who.int/icd/release/11/2026-01/mms/465177735"
+        ],
+        "class_kind_mms": "category",
+        "definition_mms": "Diabetes mellitus type 2 (formerly noninsulin-dependent diabetes mellitus (NIDDM) or adult-onset diabetes) is a metabolic disorder that is characterised by high blood glucose in the context of insulin resistance and relative insulin deficiency.",
+        "inclusion_mms": [
+            "non-insulin-dependent diabetes of the young"
+        ],
+        "exclusion_mms": [
+            {
+                "title": "Diabetes mellitus in pregnancy",
+                "foundationReference": "http://id.who.int/icd/entity/169360210"
+            },
+            {
+                "title": "Diabetes mellitus, other specified type",
+                "foundationReference": "http://id.who.int/icd/entity/381961554"
+            },
+            {
+                "title": "Idiopathic Type 1 diabetes mellitus",
+                "foundationReference": "http://id.who.int/icd/entity/702044482"
+            }
+        ],
+        "index_term_synonyms": [
+            {
+                "title": "Type 2 diabetes mellitus",
+                "foundationReference": ""
+            },
+            {
+                "title": "DM type II",
+                "foundationReference": ""
+            },
+            {
+                "title": "DM2",
+                "foundationReference": ""
+            },
+            {
+                "title": "Diabetic type 2",
+                "foundationReference": ""
+            },
+            {
+                "title": "NIDDM - [non insulin dependent diabetes mellitus]",
+                "foundationReference": ""
+            },
+            {
+                "title": "T2DM - [Type 2 diabetes mellitus]",
+                "foundationReference": ""
+            },
+            {
+                "title": "Type II diabetes mellitus",
+                "foundationReference": ""
+            },
+            {
+                "title": "adult onset diabetes",
+                "foundationReference": ""
+            },
+            {
+                "title": "diabetes due to insulin secretory defect",
+                "foundationReference": ""
+            },
+            {
+                "title": "diabetes mellitus Type 2",
+                "foundationReference": ""
+            },
+            {
+                "title": "diabetes mellitus due to insulin secretory defect",
+                "foundationReference": ""
+            },
+            {
+                "title": "insulin requiring type 2 diabetes",
+                "foundationReference": ""
+            },
+            {
+                "title": "maturity onset diabetes",
+                "foundationReference": ""
+            },
+            {
+                "title": "maturity-onset diabetes mellitus",
+                "foundationReference": ""
+            },
+            {
+                "title": "non-insulin dependent diabetes mellitus",
+                "foundationReference": ""
+            },
+            {
+                "title": "non-insulin-dependent diabetes mellitus without complications",
+                "foundationReference": ""
+            },
+            {
+                "title": "non-insulin-dependent diabetes of the young",
+                "foundationReference": ""
+            },
+            {
+                "title": "noninsulin dependent diabetes",
+                "foundationReference": ""
+            },
+            {
+                "title": "nonketotic diabetes",
+                "foundationReference": ""
+            },
+            {
+                "title": "nonketotic hyperglycaemia",
+                "foundationReference": ""
+            },
+            {
+                "title": "senile diabetes",
+                "foundationReference": ""
+            },
+            {
+                "title": "stable diabetes",
+                "foundationReference": ""
+            },
+            {
+                "title": "type 2 diabetes",
+                "foundationReference": ""
+            },
+            {
+                "title": "type II diabetes",
+                "foundationReference": ""
+            },
+            {
+                "title": "Ketosis-resistant diabetes mellitus",
+                "foundationReference": "http://id.who.int/icd/entity/618467158"
+            },
+            {
+                "title": "Insulin resistant diabetes mellitus",
+                "foundationReference": "http://id.who.int/icd/entity/1255683285"
+            },
+            {
+                "title": "insulin resistant diabetes",
+                "foundationReference": "http://id.who.int/icd/entity/1255683285"
+            }
+        ],
+        "relatedEntitiesInMaternalChapter": [
+            "http://id.who.int/icd/entity/750602160"
+        ],
+        "relatedEntitiesInPerinatalChapter": [
+            "http://id.who.int/icd/entity/1217915084"
+        ],
+        "codingNote": "",
+        "foundationChildElsewhere": [
+            {
+                "title": "Pre-existing type 2 diabetes mellitus in pregnancy",
+                "foundationReference": "http://id.who.int/icd/entity/750602160"
+            }
+        ],
+        "postcoordination_scale": [
+            {
+                "@id": "http://id.who.int/icd/release/11/2026-01/mms/119724091/postcoordinationScale/hasManifestation",
+                "axisName": "http://id.who.int/icd/schema/hasManifestation",
+                "requiredPostcoordination": "false",
+                "allowMultipleValues": "AllowAlways",
+                "scaleEntity": [
+                    "http://id.who.int/icd/release/11/2026-01/mms/1304552818",
+                    "http://id.who.int/icd/release/11/2026-01/mms/1837670870",
+                    "http://id.who.int/icd/release/11/2026-01/mms/168436253/other",
+                    "http://id.who.int/icd/release/11/2026-01/mms/1129679469",
+                    "http://id.who.int/icd/release/11/2026-01/mms/340836242",
+                    "http://id.who.int/icd/release/11/2026-01/mms/1006882070",
+                    "http://id.who.int/icd/release/11/2026-01/mms/426429380",
+                    "http://id.who.int/icd/release/11/2026-01/mms/848543944",
+                    "http://id.who.int/icd/release/11/2026-01/mms/197934298",
+                    "http://id.who.int/icd/release/11/2026-01/mms/1256772020",
+                    "http://id.who.int/icd/release/11/2026-01/mms/913893315",
+                    "http://id.who.int/icd/release/11/2026-01/mms/1473673350",
+                    "http://id.who.int/icd/release/11/2026-01/mms/1605714008",
+                    "http://id.who.int/icd/release/11/2026-01/mms/30659757",
+                    "http://id.who.int/icd/release/11/2026-01/mms/412389819",
+                    "http://id.who.int/icd/release/11/2026-01/mms/188156827"
+                ]
+            }
+        ],
+        "browserUrl_foundation": "https://icd.who.int/browse/2026-01/foundation/en#119724091",
+        "fully_specified_name_foundation": "",
+        "long_definition_foundation": "",
+        "parent_foundation": [
+            "http://id.who.int/icd/entity/465177735"
+        ],
+        "synonyms_foundation": [
+            "DM type II",
+            "DM2",
+            "Diabetic type 2",
+            "NIDDM - [non insulin dependent diabetes mellitus]",
+            "T2DM - [Type 2 diabetes mellitus]",
+            "Type II diabetes mellitus",
+            "adult onset diabetes",
+            "diabetes due to insulin secretory defect",
+            "diabetes mellitus Type 2",
+            "diabetes mellitus due to insulin secretory defect",
+            "insulin requiring type 2 diabetes",
+            "maturity onset diabetes",
+            "maturity-onset diabetes mellitus",
+            "non-insulin dependent diabetes mellitus",
+            "non-insulin-dependent diabetes mellitus without complications",
+            "non-insulin-dependent diabetes of the young",
+            "noninsulin dependent diabetes",
+            "nonketotic diabetes",
+            "nonketotic hyperglycaemia",
+            "senile diabetes",
+            "stable diabetes",
+            "type 2 diabetes",
+            "type II diabetes"
+        ]
+    },
+    {
+        "code": "6E62.1",
+        "foundation_uri": "http://id.who.int/icd/entity/880462195",
+        "mms_link": "http://id.who.int/icd/release/11/2026-01/mms/880462195",
+        "browserUrl": "https://icd.who.int/browse/2026-01/mms/en#880462195",
+        "title": "Secondary mood syndrome, with manic symptoms",
+        "fully_specified_name": "Mood syndrome due to health condition not classified under mental and behavioural disorders, with manic symptoms",
+        "parent_mms": [
+            "http://id.who.int/icd/release/11/2026-01/mms/216291184"
+        ],
+        "class_kind_mms": "category",
+        "definition_mms": "A syndrome characterised by the presence of prominent manic symptoms such as elevated, euphoric, irritable, or expansive mood states, rapid changes among different mood states (i.e., mood lability), or increased energy or activity that is judged to be a direct pathophysiological consequence of a health condition not classified under mental and behavioural disorders based on evidence from the history, physical examination, or laboratory findings.",
+        "inclusion_mms": [
+            "mood syndrome due to disorders or diseases not classified under Mental and behavioural disorders, with manic symptoms"
+        ],
+        "exclusion_mms": [
+            {
+                "title": "Adjustment disorder",
+                "foundationReference": "http://id.who.int/icd/entity/264310751"
+            },
+            {
+                "title": "Delirium",
+                "foundationReference": "http://id.who.int/icd/entity/897917531"
+            }
+        ],
+        "index_term_synonyms": [
+            {
+                "title": "Secondary mood syndrome, with manic symptoms",
+                "foundationReference": ""
+            },
+            {
+                "title": "Manic symptoms",
+                "foundationReference": ""
+            },
+            {
+                "title": "Organic manic disorder",
+                "foundationReference": ""
+            },
+            {
+                "title": "mood syndrome due to disorders or diseases not classified under Mental and behavioural disorders, with manic symptoms",
+                "foundationReference": ""
+            },
+            {
+                "title": "organic mood disorder",
+                "foundationReference": ""
+            },
+            {
+                "title": "organic mood disorder of manic type",
+                "foundationReference": ""
+            },
+            {
+                "title": "Mood syndrome due to health condition not classified under mental and behavioural disorders, with manic symptoms",
+                "foundationReference": ""
+            }
+        ],
+        "relatedEntitiesInMaternalChapter": [],
+        "relatedEntitiesInPerinatalChapter": [],
+        "codingNote": "",
+        "foundationChildElsewhere": [],
+        "postcoordination_scale": [
+            {
+                "@id": "http://id.who.int/icd/release/11/2026-01/mms/880462195/postcoordinationScale/hasCausingCondition",
+                "axisName": "http://id.who.int/icd/schema/hasCausingCondition",
+                "requiredPostcoordination": "true",
+                "allowMultipleValues": "AllowAlways",
+                "scaleEntity": [
+                    "http://id.who.int/icd/release/11/2026-01/mms/1435254666",
+                    "http://id.who.int/icd/release/11/2026-01/mms/1630407678",
+                    "http://id.who.int/icd/release/11/2026-01/mms/1766440644",
+                    "http://id.who.int/icd/release/11/2026-01/mms/1954798891",
+                    "http://id.who.int/icd/release/11/2026-01/mms/21500692",
+                    "http://id.who.int/icd/release/11/2026-01/mms/1296093776",
+                    "http://id.who.int/icd/release/11/2026-01/mms/426429380",
+                    "http://id.who.int/icd/release/11/2026-01/mms/1256772020",
+                    "http://id.who.int/icd/release/11/2026-01/mms/1639304259",
+                    "http://id.who.int/icd/release/11/2026-01/mms/1473673350",
+                    "http://id.who.int/icd/release/11/2026-01/mms/30659757"
+                ]
+            }
+        ],
+        "browserUrl_foundation": "https://icd.who.int/browse/2026-01/foundation/en#880462195",
+        "fully_specified_name_foundation": "Mood syndrome due to health condition not classified under mental and behavioural disorders, with manic symptoms",
+        "long_definition_foundation": "A syndrome characterized by the presence of prominent manic symptoms such as elevated, euphoric, irritable, or expansive mood states, rapid changes among different mood states (i.e., mood lability), or increased energy or activity that is judged to be a direct pathophysiological consequence of a health condition not classified under mental and behavioural disorders based on evidence from the history, physical examination, or laboratory findings. The symptoms are not accounted for by delirium or by another mental and behavioural disorder, and are not a psychologically mediated response to a severe medical condition (e.g., depressive symptoms in response to a life-threatening diagnosis). This category should be used in addition to the diagnosis for the presumed underlying disorder or disease when the mood symptoms are sufficiently severe to warrant specific clinical attention.",
+        "parent_foundation": [
+            "http://id.who.int/icd/entity/216291184"
+        ],
+        "synonyms_foundation": [
+            "Manic symptoms",
+            "Organic manic disorder",
+            "mood syndrome due to disorders or diseases not classified under Mental and behavioural disorders, with manic symptoms",
+            "organic mood disorder",
+            "organic mood disorder of manic type"
+        ]
+    },
+    {
+        "code": "DA08.3",
+        "foundation_uri": "http://id.who.int/icd/entity/1299071429",
+        "mms_link": "http://id.who.int/icd/release/11/2026-01/mms/1299071429",
+        "browserUrl": "https://icd.who.int/browse/2026-01/mms/en#1299071429",
+        "title": "Nontraumatic fracture of tooth",
+        "fully_specified_name": "",
+        "parent_mms": [
+            "http://id.who.int/icd/release/11/2026-01/mms/1948101301"
+        ],
+        "class_kind_mms": "category",
+        "definition_mms": "Discontinuity of tooth structure in vertical or horizontal direction of the long axis of a tooth and which may affect enamel and/or dentine. This condition is referred as incomplete fracture and may be related to flexural loads acting on the teeth. In some cases the dental pulp may become affected.",
+        "inclusion_mms": [
+            "Complete nontraumatic fracture not involving vital pulp",
+            "Incomplete fracture not involving vital pulp"
+        ],
+        "exclusion_mms": [
+            {
+                "title": "traumatic fracture of tooth",
+                "foundationReference": "http://id.who.int/icd/entity/551460603"
+            }
+        ],
+        "index_term_synonyms": [
+            {
+                "title": "Nontraumatic fracture of tooth",
+                "foundationReference": ""
+            },
+            {
+                "title": "Complete nontraumatic fracture not involving vital pulp",
+                "foundationReference": ""
+            },
+            {
+                "title": "Incomplete fracture not involving vital pulp",
+                "foundationReference": ""
+            },
+            {
+                "title": "pathological fracture of teeth",
+                "foundationReference": ""
+            },
+            {
+                "title": "Nontraumatic fracture of tooth involving vital pulp",
+                "foundationReference": "http://id.who.int/icd/entity/158053041"
+            },
+            {
+                "title": "Nontraumatic fracture involving non-vital pulp",
+                "foundationReference": "http://id.who.int/icd/entity/1952803448"
+            },
+            {
+                "title": "Horizontal nontraumatic fracture of tooth",
+                "foundationReference": "http://id.who.int/icd/entity/1873538404"
+            },
+            {
+                "title": "Nontraumatic fracture of crown of tooth, enamel and dentin, with pulp exposure",
+                "foundationReference": "http://id.who.int/icd/entity/1786395150"
+            },
+            {
+                "title": "Nontraumatic fracture of crown of tooth, enamel only",
+                "foundationReference": "http://id.who.int/icd/entity/986536387"
+            },
+            {
+                "title": "Vertical root fracture",
+                "foundationReference": "http://id.who.int/icd/entity/1073313341"
+            }
+        ],
+        "relatedEntitiesInMaternalChapter": [
+            "http://id.who.int/icd/entity/1135143938"
+        ],
+        "relatedEntitiesInPerinatalChapter": [
+            "http://id.who.int/icd/entity/494951911"
+        ],
+        "codingNote": "",
+        "foundationChildElsewhere": [],
+        "postcoordination_scale": [
+            {
+                "@id": "http://id.who.int/icd/release/11/2026-01/mms/1299071429/postcoordinationScale/specificAnatomy",
+                "axisName": "http://id.who.int/icd/schema/specificAnatomy",
+                "requiredPostcoordination": "false",
+                "allowMultipleValues": "AllowAlways",
+                "scaleEntity": [
+                    "http://id.who.int/icd/release/11/2026-01/mms/1852657443",
+                    "http://id.who.int/icd/release/11/2026-01/mms/1374104635"
+                ]
+            }
+        ],
+        "browserUrl_foundation": "https://icd.who.int/browse/2026-01/foundation/en#1299071429",
+        "fully_specified_name_foundation": "",
+        "long_definition_foundation": "An incomplete fracture not directly involving a vital pulp is often termed a greenstick fracture. This condition is very sensitive, yet the patient can specify only which side of the mouth is affected rather than the specific tooth. Usually, pain is not associated with complete fracture not involving vital pulp, unless the gingival border of the fractured segment is still held by periodontal tissue. \n\nFracture involving vital pulp always results in pulpal infection and severe pain.It has been proposed that the predominant causative factor of some cervical, wedge-shaped defects is a strong( heavy) eccentric occlusal force (shown as an associated wear facet resulting in microfractures or abfractures. Such microfractures occur as the cervical area of the tooth flexes under such loads.",
+        "parent_foundation": [
+            "http://id.who.int/icd/entity/1948101301"
+        ],
+        "synonyms_foundation": [
+            "Complete nontraumatic fracture not involving vital pulp",
+            "Incomplete fracture not involving vital pulp",
+            "pathological fracture of teeth"
+        ]
+    },
+    {
+        "code": "DA21.0",
+        "foundation_uri": "http://id.who.int/icd/entity/636464846",
+        "mms_link": "http://id.who.int/icd/release/11/2026-01/mms/636464846",
+        "browserUrl": "https://icd.who.int/browse/2026-01/mms/en#636464846",
+        "title": "Achalasia",
+        "fully_specified_name": "",
+        "parent_mms": [
+            "http://id.who.int/icd/release/11/2026-01/mms/581725607"
+        ],
+        "class_kind_mms": "category",
+        "definition_mms": "Achalasia is an oesophageal smooth muscle motility disorder characterised by a loss of peristalsis in the distal oesophagus and a failure of lower oesophageal sphincter (LES) relaxation. Basic mechanism is the degeneration of neurons (ganglion cells) in the myenteric plexuses in the oesophageal wall, but the cause is still unclear.",
+        "inclusion_mms": [
+            "Cardiospasm"
+        ],
+        "exclusion_mms": [
+            {
+                "title": "congenital cardiospasm",
+                "foundationReference": "http://id.who.int/icd/entity/398153442"
+            }
+        ],
+        "index_term_synonyms": [
+            {
+                "title": "Achalasia",
+                "foundationReference": ""
+            },
+            {
+                "title": "Cardiospasm",
+                "foundationReference": ""
+            },
+            {
+                "title": "achalasia NOS",
+                "foundationReference": ""
+            },
+            {
+                "title": "achalasia of cardia",
+                "foundationReference": ""
+            },
+            {
+                "title": "achalasia of oesophagus",
+                "foundationReference": ""
+            },
+            {
+                "title": "aperistalsis of the oesophagus",
+                "foundationReference": ""
+            },
+            {
+                "title": "cardia achalasia",
+                "foundationReference": ""
+            },
+            {
+                "title": "cardia spasm",
+                "foundationReference": ""
+            },
+            {
+                "title": "oesophageal achalasia",
+                "foundationReference": ""
+            },
+            {
+                "title": "oesophageal cardiospasm",
+                "foundationReference": ""
+            },
+            {
+                "title": "oesophagus achalasia",
+                "foundationReference": ""
+            },
+            {
+                "title": "reflex cardiospasm",
+                "foundationReference": ""
+            },
+            {
+                "title": "Primary achalasia",
+                "foundationReference": "http://id.who.int/icd/entity/396058084"
+            },
+            {
+                "title": "Idiopathic achalasia",
+                "foundationReference": "http://id.who.int/icd/entity/396058084"
+            },
+            {
+                "title": "Non-Chagas achalasia",
+                "foundationReference": "http://id.who.int/icd/entity/396058084"
+            },
+            {
+                "title": "Familial primary achalasia",
+                "foundationReference": "http://id.who.int/icd/entity/265869596"
+            },
+            {
+                "title": "Sporadic primary achalasia",
+                "foundationReference": "http://id.who.int/icd/entity/505440999"
+            }
+        ],
+        "relatedEntitiesInMaternalChapter": [
+            "http://id.who.int/icd/entity/1135143938"
+        ],
+        "relatedEntitiesInPerinatalChapter": [
+            "http://id.who.int/icd/entity/494951911"
+        ],
+        "codingNote": "",
+        "foundationChildElsewhere": [
+            {
+                "title": "Achalasia in Chagas disease",
+                "foundationReference": "http://id.who.int/icd/entity/1328238426"
+            }
+        ],
+        "postcoordination_scale": [
+            {
+                "@id": "http://id.who.int/icd/release/11/2026-01/mms/636464846/postcoordinationScale/associatedWith",
+                "axisName": "http://id.who.int/icd/schema/associatedWith",
+                "requiredPostcoordination": "false",
+                "allowMultipleValues": "AllowAlways",
+                "scaleEntity": [
+                    "http://id.who.int/icd/release/11/2026-01/mms/1008515027",
+                    "http://id.who.int/icd/release/11/2026-01/mms/461716838",
+                    "http://id.who.int/icd/release/11/2026-01/mms/1020615731"
+                ]
+            }
+        ],
+        "browserUrl_foundation": "https://icd.who.int/browse/2026-01/foundation/en#636464846",
+        "fully_specified_name_foundation": "",
+        "long_definition_foundation": "",
+        "parent_foundation": [
+            "http://id.who.int/icd/entity/581725607"
+        ],
+        "synonyms_foundation": [
+            "Cardiospasm",
+            "achalasia NOS",
+            "achalasia of cardia",
+            "achalasia of oesophagus",
+            "aperistalsis of the oesophagus",
+            "cardia achalasia",
+            "cardia spasm",
+            "oesophageal achalasia",
+            "oesophageal cardiospasm",
+            "oesophagus achalasia",
+            "reflex cardiospasm"
+        ]
+    },
+    {
+        "code": "DA92.0",
+        "foundation_uri": "http://id.who.int/icd/entity/706082231",
+        "mms_link": "http://id.who.int/icd/release/11/2026-01/mms/706082231",
+        "browserUrl": "https://icd.who.int/browse/2026-01/mms/en#706082231",
+        "title": "Fistula of small intestine",
+        "fully_specified_name": "",
+        "parent_mms": [
+            "http://id.who.int/icd/release/11/2026-01/mms/716284939"
+        ],
+        "class_kind_mms": "category",
+        "definition_mms": "A small intestinal fistula is defined as an abnormal communication between the small intestine and another epithelialized surface such as the skin or an adjacent loop of bowel.",
+        "inclusion_mms": [
+            "Fistula of intestine, site unspecified"
+        ],
+        "exclusion_mms": [
+            {
+                "title": "Fistula of duodenum",
+                "foundationReference": "http://id.who.int/icd/entity/2074261372"
+            }
+        ],
+        "index_term_synonyms": [
+            {
+                "title": "Fistula of small intestine",
+                "foundationReference": ""
+            },
+            {
+                "title": "Fistula of intestine, site unspecified",
+                "foundationReference": ""
+            }
+        ],
+        "relatedEntitiesInMaternalChapter": [
+            "http://id.who.int/icd/entity/1135143938"
+        ],
+        "relatedEntitiesInPerinatalChapter": [
+            "http://id.who.int/icd/entity/494951911"
+        ],
+        "codingNote": "",
+        "foundationChildElsewhere": [
+            {
+                "title": "Fistula of small intestine to vagina",
+                "foundationReference": "http://id.who.int/icd/entity/1152477250"
+            }
+        ],
+        "postcoordination_scale": [
+            {
+                "@id": "http://id.who.int/icd/release/11/2026-01/mms/706082231/postcoordinationScale/specificAnatomy",
+                "axisName": "http://id.who.int/icd/schema/specificAnatomy",
+                "requiredPostcoordination": "false",
+                "allowMultipleValues": "AllowAlways",
+                "scaleEntity": [
+                    "http://id.who.int/icd/release/11/2026-01/mms/18598211",
+                    "http://id.who.int/icd/release/11/2026-01/mms/1708923236"
+                ]
+            },
+            {
+                "@id": "http://id.who.int/icd/release/11/2026-01/mms/706082231/postcoordinationScale/hasManifestation",
+                "axisName": "http://id.who.int/icd/schema/hasManifestation",
+                "requiredPostcoordination": "false",
+                "allowMultipleValues": "AllowAlways",
+                "scaleEntity": [
+                    "http://id.who.int/icd/release/11/2026-01/mms/1020615731"
+                ]
+            }
+        ],
+        "browserUrl_foundation": "https://icd.who.int/browse/2026-01/foundation/en#706082231",
+        "fully_specified_name_foundation": "",
+        "long_definition_foundation": "",
+        "parent_foundation": [
+            "http://id.who.int/icd/entity/716284939"
+        ],
+        "synonyms_foundation": [
+            "Fistula of intestine, site unspecified"
+        ]
+    },
+    {
+        "code": "DB93.0",
+        "foundation_uri": "http://id.who.int/icd/entity/1377614074",
+        "mms_link": "http://id.who.int/icd/release/11/2026-01/mms/1377614074",
+        "browserUrl": "https://icd.who.int/browse/2026-01/mms/en#1377614074",
+        "title": "Hepatic fibrosis",
+        "fully_specified_name": "",
+        "parent_mms": [
+            "http://id.who.int/icd/release/11/2026-01/mms/481852400"
+        ],
+        "class_kind_mms": "category",
+        "definition_mms": "Hepatic Fibrosis is defined as an excess deposition of the components of extracellular matrix (i.e. collagens, glycoproteins, proteoglycans) within the liver. This response to liver injury potentially is reversible. In contrast, in most patients, cirrhosis is not a reversible process.",
+        "inclusion_mms": [
+            "hepatic fibrosis with hepatic sclerosis",
+            "hepatic sclerosis"
+        ],
+        "exclusion_mms": [
+            {
+                "title": "Alcoholic liver fibrosis",
+                "foundationReference": "http://id.who.int/icd/entity/2030367981"
+            },
+            {
+                "title": "Congenital hepatic fibrosis",
+                "foundationReference": "http://id.who.int/icd/entity/206878481"
+            },
+            {
+                "title": "Drug-induced or toxic liver disease with fibrosis or cirrhosis of liver",
+                "foundationReference": "http://id.who.int/icd/entity/133444243"
+            }
+        ],
+        "index_term_synonyms": [
+            {
+                "title": "Hepatic fibrosis",
+                "foundationReference": ""
+            },
+            {
+                "title": "fibrosis of liver",
+                "foundationReference": ""
+            },
+            {
+                "title": "fibrotic liver",
+                "foundationReference": ""
+            },
+            {
+                "title": "hepatic fibrosis NOS",
+                "foundationReference": ""
+            },
+            {
+                "title": "hepatic fibrosis with hepatic sclerosis",
+                "foundationReference": ""
+            },
+            {
+                "title": "hepatic sclerosis",
+                "foundationReference": ""
+            },
+            {
+                "title": "liver fibrosis",
+                "foundationReference": ""
+            },
+            {
+                "title": "liver fibrosis NOS",
+                "foundationReference": ""
+            }
+        ],
+        "relatedEntitiesInMaternalChapter": [
+            "http://id.who.int/icd/entity/1135143938"
+        ],
+        "relatedEntitiesInPerinatalChapter": [
+            "http://id.who.int/icd/entity/494951911"
+        ],
+        "codingNote": "",
+        "foundationChildElsewhere": [
+            {
+                "title": "Oesophageal varices with bleeding in hepatic fibrosis",
+                "foundationReference": "http://id.who.int/icd/entity/686243338"
+            },
+            {
+                "title": "Hepatic fibrosis due to Schistosomiasis without portal hypertension",
+                "foundationReference": "http://id.who.int/icd/entity/35192945"
+            }
+        ],
+        "postcoordination_scale": [
+            {
+                "@id": "http://id.who.int/icd/release/11/2026-01/mms/1377614074/postcoordinationScale/hasManifestation",
+                "axisName": "http://id.who.int/icd/schema/hasManifestation",
+                "requiredPostcoordination": "false",
+                "allowMultipleValues": "AllowAlways",
+                "scaleEntity": [
+                    "http://id.who.int/icd/release/11/2026-01/mms/933570887",
+                    "http://id.who.int/icd/release/11/2026-01/mms/1020615731"
+                ]
+            },
+            {
+                "@id": "http://id.who.int/icd/release/11/2026-01/mms/1377614074/postcoordinationScale/course",
+                "axisName": "http://id.who.int/icd/schema/course",
+                "requiredPostcoordination": "false",
+                "allowMultipleValues": "NotAllowed",
+                "scaleEntity": [
+                    "http://id.who.int/icd/release/11/2026-01/mms/786106375",
+                    "http://id.who.int/icd/release/11/2026-01/mms/490003542"
+                ]
+            }
+        ],
+        "browserUrl_foundation": "https://icd.who.int/browse/2026-01/foundation/en#1377614074",
+        "fully_specified_name_foundation": "",
+        "long_definition_foundation": "",
+        "parent_foundation": [
+            "http://id.who.int/icd/entity/481852400"
+        ],
+        "synonyms_foundation": [
+            "fibrosis of liver",
+            "fibrotic liver",
+            "hepatic fibrosis NOS",
+            "hepatic fibrosis with hepatic sclerosis",
+            "hepatic sclerosis",
+            "liver fibrosis",
+            "liver fibrosis NOS"
+        ]
+    },
+    {
+        "code": "DD90.3",
+        "foundation_uri": "http://id.who.int/icd/entity/1616929118",
+        "mms_link": "http://id.who.int/icd/release/11/2026-01/mms/1616929118",
+        "browserUrl": "https://icd.who.int/browse/2026-01/mms/en#1616929118",
+        "title": "Functional dyspepsia",
+        "fully_specified_name": "",
+        "parent_mms": [
+            "http://id.who.int/icd/release/11/2026-01/mms/197587246"
+        ],
+        "class_kind_mms": "category",
+        "definition_mms": "Functional dyspepsia is a disorder defined as the presence of dyspepsia symptoms thought to originate from the gastroduodenal region, in the absence of any organic, systemic, or metabolic disease that is likely to explain the symptoms such as epigastric pain, epigastric burning, postprandial fullness, and early satiation.",
+        "inclusion_mms": [
+            "Indigestion",
+            "Postprandial distress syndrome"
+        ],
+        "exclusion_mms": [
+            {
+                "title": "Dyspepsia NOS",
+                "foundationReference": "http://id.who.int/icd/entity/869622187"
+            },
+            {
+                "title": "Heartburn",
+                "foundationReference": "http://id.who.int/icd/entity/1559380866"
+            }
+        ],
+        "index_term_synonyms": [
+            {
+                "title": "Functional dyspepsia",
+                "foundationReference": ""
+            },
+            {
+                "title": "Indigestion",
+                "foundationReference": ""
+            },
+            {
+                "title": "gastrointestinal distress",
+                "foundationReference": ""
+            },
+            {
+                "title": "gastrointestinal disturbance",
+                "foundationReference": ""
+            },
+            {
+                "title": "gastrointestinal irritation",
+                "foundationReference": ""
+            },
+            {
+                "title": "gastrointestinal upset",
+                "foundationReference": ""
+            },
+            {
+                "title": "indigestion acid",
+                "foundationReference": ""
+            },
+            {
+                "title": "non-ulcer dyspepsia",
+                "foundationReference": ""
+            },
+            {
+                "title": "stomach upset",
+                "foundationReference": ""
+            },
+            {
+                "title": "Postprandial distress syndrome",
+                "foundationReference": "http://id.who.int/icd/entity/2064874407"
+            },
+            {
+                "title": "Atonic dyspepsia",
+                "foundationReference": "http://id.who.int/icd/entity/1993489880"
+            }
+        ],
+        "relatedEntitiesInMaternalChapter": [
+            "http://id.who.int/icd/entity/1135143938"
+        ],
+        "relatedEntitiesInPerinatalChapter": [
+            "http://id.who.int/icd/entity/494951911"
+        ],
+        "codingNote": "",
+        "foundationChildElsewhere": [
+            {
+                "title": "Chronic primary epigastric pain syndrome",
+                "foundationReference": "http://id.who.int/icd/entity/1983908934"
+            }
+        ],
+        "postcoordination_scale": [
+            {
+                "@id": "http://id.who.int/icd/release/11/2026-01/mms/1616929118/postcoordinationScale/hasManifestation",
+                "axisName": "http://id.who.int/icd/schema/hasManifestation",
+                "requiredPostcoordination": "false",
+                "allowMultipleValues": "AllowAlways",
+                "scaleEntity": [
+                    "http://id.who.int/icd/release/11/2026-01/mms/1020615731"
+                ]
+            }
+        ],
+        "browserUrl_foundation": "https://icd.who.int/browse/2026-01/foundation/en#1616929118",
+        "fully_specified_name_foundation": "",
+        "long_definition_foundation": "",
+        "parent_foundation": [
+            "http://id.who.int/icd/entity/197587246"
+        ],
+        "synonyms_foundation": [
+            "Indigestion",
+            "gastrointestinal distress",
+            "gastrointestinal disturbance",
+            "gastrointestinal irritation",
+            "gastrointestinal upset",
+            "indigestion acid",
+            "non-ulcer dyspepsia",
+            "stomach upset"
+        ]
+    },
+    {
+        "code": "MG26",
+        "foundation_uri": "http://id.who.int/icd/entity/915343154",
+        "mms_link": "http://id.who.int/icd/release/11/2026-01/mms/915343154",
+        "browserUrl": "https://icd.who.int/browse/2026-01/mms/en#915343154",
+        "title": "Fever of other or unknown origin",
+        "fully_specified_name": "",
+        "parent_mms": [
+            "http://id.who.int/icd/release/11/2026-01/mms/1390117811"
+        ],
+        "class_kind_mms": "category",
+        "definition_mms": "An abnormal elevation of body temperature of unknown origin, often as a result of a pathologic process.",
+        "inclusion_mms": [],
+        "exclusion_mms": [
+            {
+                "title": "fever of unknown origin in newborn",
+                "foundationReference": "http://id.who.int/icd/entity/1319339568"
+            },
+            {
+                "title": "Malignant hyperthermia due to anaesthesia",
+                "foundationReference": "http://id.who.int/icd/entity/483464556"
+            }
+        ],
+        "index_term_synonyms": [
+            {
+                "title": "Fever of other or unknown origin",
+                "foundationReference": ""
+            },
+            {
+                "title": "FUO - [fever of unknown origin]",
+                "foundationReference": ""
+            },
+            {
+                "title": "Hyperpyrexia NOS",
+                "foundationReference": ""
+            },
+            {
+                "title": "PUO - [pyrexia of unknown origin]",
+                "foundationReference": ""
+            },
+            {
+                "title": "Pyrexia NOS",
+                "foundationReference": ""
+            },
+            {
+                "title": "elevated body temperature",
+                "foundationReference": ""
+            },
+            {
+                "title": "ephemeral fever",
+                "foundationReference": ""
+            },
+            {
+                "title": "febrile",
+                "foundationReference": ""
+            },
+            {
+                "title": "febris",
+                "foundationReference": ""
+            },
+            {
+                "title": "fever",
+                "foundationReference": ""
+            },
+            {
+                "title": "fever NOS",
+                "foundationReference": ""
+            },
+            {
+                "title": "fever, unspecified",
+                "foundationReference": ""
+            },
+            {
+                "title": "feverish",
+                "foundationReference": ""
+            },
+            {
+                "title": "high body temperature",
+                "foundationReference": ""
+            },
+            {
+                "title": "hyperpyrexia",
+                "foundationReference": ""
+            },
+            {
+                "title": "hyperpyrexia of unknown origin",
+                "foundationReference": ""
+            },
+            {
+                "title": "hyperthermia",
+                "foundationReference": ""
+            },
+            {
+                "title": "hyperthermic",
+                "foundationReference": ""
+            },
+            {
+                "title": "increased body temperature",
+                "foundationReference": ""
+            },
+            {
+                "title": "intermittent fever of unknown origin",
+                "foundationReference": ""
+            },
+            {
+                "title": "malignant hyperthermia",
+                "foundationReference": ""
+            },
+            {
+                "title": "pyrexia",
+                "foundationReference": ""
+            },
+            {
+                "title": "raised body temperature",
+                "foundationReference": ""
+            },
+            {
+                "title": "Central fever",
+                "foundationReference": "http://id.who.int/icd/entity/805441643"
+            },
+            {
+                "title": "Drug-induced fever",
+                "foundationReference": "http://id.who.int/icd/entity/1596497122"
+            },
+            {
+                "title": "drug fever",
+                "foundationReference": "http://id.who.int/icd/entity/1596497122"
+            },
+            {
+                "title": "medicament-induced fever",
+                "foundationReference": "http://id.who.int/icd/entity/1596497122"
+            },
+            {
+                "title": "Acute febrile syndrome",
+                "foundationReference": "http://id.who.int/icd/entity/1707026873"
+            },
+            {
+                "title": "Other specified fever",
+                "foundationReference": "http://id.who.int/icd/entity/1078560607"
+            },
+            {
+                "title": "Fever with chills",
+                "foundationReference": "http://id.who.int/icd/entity/1614642919"
+            },
+            {
+                "title": "Fever with rigors",
+                "foundationReference": "http://id.who.int/icd/entity/1591434415"
+            },
+            {
+                "title": "Persistent fever",
+                "foundationReference": "http://id.who.int/icd/entity/339741622"
+            },
+            {
+                "title": "persistent pyrexia",
+                "foundationReference": "http://id.who.int/icd/entity/339741622"
+            }
+        ],
+        "relatedEntitiesInMaternalChapter": [
+            "http://id.who.int/icd/entity/345665595",
+            "http://id.who.int/icd/entity/214991332"
+        ],
+        "relatedEntitiesInPerinatalChapter": [
+            "http://id.who.int/icd/entity/660796688"
+        ],
+        "codingNote": "",
+        "foundationChildElsewhere": [
+            {
+                "title": "Pyrexia of unknown origin following delivery",
+                "foundationReference": "http://id.who.int/icd/entity/214991332"
+            },
+            {
+                "title": "Pyrexia during labour, not elsewhere classified",
+                "foundationReference": "http://id.who.int/icd/entity/345665595"
+            },
+            {
+                "title": "Fever of newborn",
+                "foundationReference": "http://id.who.int/icd/entity/660796688"
+            }
+        ],
+        "postcoordination_scale": [
+            {
+                "@id": "http://id.who.int/icd/release/11/2026-01/mms/915343154/postcoordinationScale/associatedWith",
+                "axisName": "http://id.who.int/icd/schema/associatedWith",
+                "requiredPostcoordination": "false",
+                "allowMultipleValues": "AllowAlways",
+                "scaleEntity": [
+                    "http://id.who.int/icd/release/11/2026-01/mms/1583926619",
+                    "http://id.who.int/icd/release/11/2026-01/mms/1323892810"
+                ]
+            }
+        ],
+        "browserUrl_foundation": "https://icd.who.int/browse/2026-01/foundation/en#915343154",
+        "fully_specified_name_foundation": "",
+        "long_definition_foundation": "Fever of unknown origin is defined by the following criteria: 1) temperatures of >38.3°C on several occasions; 2) a duration of fever of >3 weeks; 3) failure to reach a diagnosis despite 1 week of inpatient investigation.",
+        "parent_foundation": [
+            "http://id.who.int/icd/entity/1390117811"
+        ],
+        "synonyms_foundation": [
+            "FUO - [fever of unknown origin]",
+            "Hyperpyrexia NOS",
+            "PUO - [pyrexia of unknown origin]",
+            "Pyrexia NOS",
+            "elevated body temperature",
+            "ephemeral fever",
+            "febrile",
+            "febris",
+            "fever",
+            "fever NOS",
+            "fever, unspecified",
+            "feverish",
+            "high body temperature",
+            "hyperpyrexia",
+            "hyperpyrexia of unknown origin",
+            "hyperthermia",
+            "hyperthermic",
+            "increased body temperature",
+            "intermittent fever of unknown origin",
+            "malignant hyperthermia",
+            "pyrexia",
+            "raised body temperature"
+        ]
+    },
+    {
+        "code": "1B11.0",
+        "foundation_uri": "http://id.who.int/icd/entity/1820468614",
+        "mms_link": "http://id.who.int/icd/release/11/2026-01/mms/1820468614",
+        "browserUrl": "https://icd.who.int/browse/2026-01/mms/en#1820468614",
+        "title": "Tuberculous meningitis",
+        "fully_specified_name": "Bacterial meningitis due to Mycobacterium tuberculosis",
+        "parent_mms": [
+            "http://id.who.int/icd/release/11/2026-01/mms/729372485"
+        ],
+        "class_kind_mms": "category",
+        "definition_mms": "A disease of the meninges, caused by an infection with the bacteria Mycobacterium tuberculosis. This disease is characterised by fever, headache, or neurological deficits. Transmission is through haematogenous spread to the meninges after inhalation of infected respiratory secretions. Confirmation is by identification of Mycobacterium tuberculosis in the cerebrospinal fluid.",
+        "inclusion_mms": [
+            "Tuberculous leptomeningitis"
+        ],
+        "exclusion_mms": [],
+        "index_term_synonyms": [
+            {
+                "title": "Tuberculous meningitis",
+                "foundationReference": ""
+            },
+            {
+                "title": "Meningeal TB",
+                "foundationReference": ""
+            },
+            {
+                "title": "Meningitis due to Mycobacterium TB",
+                "foundationReference": ""
+            },
+            {
+                "title": "TB meningitis",
+                "foundationReference": ""
+            },
+            {
+                "title": "TBM - [tuberculous meningitis]",
+                "foundationReference": ""
+            },
+            {
+                "title": "Tuberculous leptomeningitis",
+                "foundationReference": ""
+            },
+            {
+                "title": "caseous meningitis",
+                "foundationReference": ""
+            },
+            {
+                "title": "meningeal TBC - [tuberculosis]",
+                "foundationReference": ""
+            },
+            {
+                "title": "meningeal tuberculosis",
+                "foundationReference": ""
+            },
+            {
+                "title": "tubercular meningitis",
+                "foundationReference": ""
+            },
+            {
+                "title": "tuberculous meninges adhesions",
+                "foundationReference": ""
+            },
+            {
+                "title": "Bacterial meningitis due to Mycobacterium tuberculosis",
+                "foundationReference": ""
+            },
+            {
+                "title": "Tuberculosis of cerebral meninges",
+                "foundationReference": "http://id.who.int/icd/entity/1602747275"
+            },
+            {
+                "title": "cerebral meningeal TB - [tuberculosis]",
+                "foundationReference": "http://id.who.int/icd/entity/1602747275"
+            },
+            {
+                "title": "cerebral meningeal TBC - [tuberculosis]",
+                "foundationReference": "http://id.who.int/icd/entity/1602747275"
+            },
+            {
+                "title": "Tuberculosis of spinal meninges",
+                "foundationReference": "http://id.who.int/icd/entity/2119204871"
+            },
+            {
+                "title": "caseous spinal meningitis",
+                "foundationReference": "http://id.who.int/icd/entity/2119204871"
+            },
+            {
+                "title": "spinal meningeal TB - [tuberculosis]",
+                "foundationReference": "http://id.who.int/icd/entity/2119204871"
+            },
+            {
+                "title": "spinal meningeal TBC - [tuberculosis]",
+                "foundationReference": "http://id.who.int/icd/entity/2119204871"
+            },
+            {
+                "title": "tuberculous arachnoiditis",
+                "foundationReference": "http://id.who.int/icd/entity/2119204871"
+            },
+            {
+                "title": "tuberculous spinal meningitis",
+                "foundationReference": "http://id.who.int/icd/entity/2119204871"
+            }
+        ],
+        "relatedEntitiesInMaternalChapter": [
+            "http://id.who.int/icd/entity/1240824451"
+        ],
+        "relatedEntitiesInPerinatalChapter": [
+            "http://id.who.int/icd/entity/576751653"
+        ],
+        "codingNote": "",
+        "foundationChildElsewhere": [],
+        "postcoordination_scale": [
+            {
+                "@id": "http://id.who.int/icd/release/11/2026-01/mms/1820468614/postcoordinationScale/associatedWith",
+                "axisName": "http://id.who.int/icd/schema/associatedWith",
+                "requiredPostcoordination": "false",
+                "allowMultipleValues": "AllowAlways",
+                "scaleEntity": [
+                    "http://id.who.int/icd/release/11/2026-01/mms/672063490"
+                ]
+            }
+        ],
+        "browserUrl_foundation": "https://icd.who.int/browse/2026-01/foundation/en#1820468614",
+        "fully_specified_name_foundation": "Bacterial meningitis due to Mycobacterium tuberculosis",
+        "long_definition_foundation": "Tuberculous meningitis is tuberculosis where bacilli seed to the meninges or brain parenchyma, resulting in the formation of small subpial or subependymal foci of metastatic caseous lesions, and dissemination into the subarachnoid space causing meningitis.",
+        "parent_foundation": [
+            "http://id.who.int/icd/entity/729372485",
+            "http://id.who.int/icd/entity/684930313"
+        ],
+        "synonyms_foundation": [
+            "Meningeal TB",
+            "Meningitis due to Mycobacterium TB",
+            "TB meningitis",
+            "TBM - [tuberculous meningitis]",
+            "Tuberculous leptomeningitis",
+            "caseous meningitis",
+            "meningeal TBC - [tuberculosis]",
+            "meningeal tuberculosis",
+            "tubercular meningitis",
+            "tuberculous meninges adhesions"
+        ]
+    },
+    {
+        "code": "5B5K.0",
+        "foundation_uri": "http://id.who.int/icd/entity/362161517",
+        "mms_link": "http://id.who.int/icd/release/11/2026-01/mms/362161517",
+        "browserUrl": "https://icd.who.int/browse/2026-01/mms/en#362161517",
+        "title": "Iron deficiency",
+        "fully_specified_name": "",
+        "parent_mms": [
+            "http://id.who.int/icd/release/11/2026-01/mms/2064197173"
+        ],
+        "class_kind_mms": "category",
+        "definition_mms": "Iron deficiency is a state in which there is insufficient iron to maintain the normal physiological function of blood, brain and muscles. It can exist in the absence of anaemia if it has not lasted long enough or if it has not been severe enough to cause the haemoglobin concentration to fall below the threshold for the specific sex and age group. Iron deficiency is the most common nutritional deficiency.",
+        "inclusion_mms": [],
+        "exclusion_mms": [
+            {
+                "title": "Iron deficiency anaemia",
+                "foundationReference": "http://id.who.int/icd/entity/1577750667"
+            }
+        ],
+        "index_term_synonyms": [
+            {
+                "title": "Iron deficiency",
+                "foundationReference": ""
+            },
+            {
+                "title": "Fe deficiency",
+                "foundationReference": ""
+            },
+            {
+                "title": "Intellectual developmental disorder due to iron deficiency",
+                "foundationReference": "http://id.who.int/icd/entity/1428593972"
+            },
+            {
+                "title": "Iron depletion without anaemia",
+                "foundationReference": "http://id.who.int/icd/entity/1120661005"
+            }
+        ],
+        "relatedEntitiesInMaternalChapter": [
+            "http://id.who.int/icd/entity/1867773640"
+        ],
+        "relatedEntitiesInPerinatalChapter": [
+            "http://id.who.int/icd/entity/517413026"
+        ],
+        "codingNote": "",
+        "foundationChildElsewhere": [
+            {
+                "title": "Acquired iron deficiency anaemia due to blood loss",
+                "foundationReference": "http://id.who.int/icd/entity/942744561"
+            },
+            {
+                "title": "Acquired iron deficiency anaemia due to low intake",
+                "foundationReference": "http://id.who.int/icd/entity/1809391766"
+            },
+            {
+                "title": "Acquired iron deficiency anaemia due to decreased absorption",
+                "foundationReference": "http://id.who.int/icd/entity/1767374177"
+            },
+            {
+                "title": "Acquired iron deficiency anaemia due to increased requirement",
+                "foundationReference": "http://id.who.int/icd/entity/1539184766"
+            },
+            {
+                "title": "Acquired iron deficiency anaemia",
+                "foundationReference": "http://id.who.int/icd/entity/84542709"
+            },
+            {
+                "title": "Dementia due to iron deficiency",
+                "foundationReference": "http://id.who.int/icd/entity/1873836819"
+            }
+        ],
+        "postcoordination_scale": [
+            {
+                "@id": "http://id.who.int/icd/release/11/2026-01/mms/362161517/postcoordinationScale/hasManifestation",
+                "axisName": "http://id.who.int/icd/schema/hasManifestation",
+                "requiredPostcoordination": "false",
+                "allowMultipleValues": "AllowAlways",
+                "scaleEntity": [
+                    "http://id.who.int/icd/release/11/2026-01/mms/392405182"
+                ]
+            }
+        ],
+        "browserUrl_foundation": "https://icd.who.int/browse/2026-01/foundation/en#362161517",
+        "fully_specified_name_foundation": "",
+        "long_definition_foundation": "Iron deficiency is defined as a condition in which there are no mobilizable iron stores and in which signs of a compromised supply of iron to tissues, including the erythron, are noted. The more severe stages of iron deficiency are associated with anaemia. Nutritional iron deficiency implies that the diet cannot supply enough iron to cover the body’s physiological requirements for this mineral. Populations most at risk for iron deficiency are infants, children, adolescents, and women of childbearing age, especially pregnant women. \n\nIron deficiency with or without anaemia has important consequences for human health and child development: anaemic women and their infants are at greater risk of dying during the perinatal period; there is increased risk of low birth weight; children’s mental and physical development is delayed or impaired by iron deficiency.",
+        "parent_foundation": [
+            "http://id.who.int/icd/entity/2064197173"
+        ],
+        "synonyms_foundation": [
+            "Fe deficiency"
+        ]
+    },
+    {
+        "code": "GB61.5",
+        "foundation_uri": "http://id.who.int/icd/entity/820638928",
+        "mms_link": "http://id.who.int/icd/release/11/2026-01/mms/820638928",
+        "browserUrl": "https://icd.who.int/browse/2026-01/mms/en#820638928",
+        "title": "Chronic kidney disease, stage 5",
+        "fully_specified_name": "",
+        "parent_mms": [
+            "http://id.who.int/icd/release/11/2026-01/mms/412389819"
+        ],
+        "class_kind_mms": "category",
+        "definition_mms": "Kidney failure, GFR < 15 ml/min/1.73m²",
+        "inclusion_mms": [
+            "chronic renal failure, stage 5"
+        ],
+        "exclusion_mms": [],
+        "index_term_synonyms": [
+            {
+                "title": "Chronic kidney disease, stage 5",
+                "foundationReference": ""
+            },
+            {
+                "title": "CKD - [chronic kidney disease] stage 5",
+                "foundationReference": ""
+            },
+            {
+                "title": "ESRD - [end stage renal diseases]",
+                "foundationReference": ""
+            },
+            {
+                "title": "ESRF - [end stage renal failure]",
+                "foundationReference": ""
+            },
+            {
+                "title": "chronic renal disease, stage V",
+                "foundationReference": ""
+            },
+            {
+                "title": "chronic renal failure, stage 5",
+                "foundationReference": ""
+            },
+            {
+                "title": "eGFR - [estimated glomerular filtration rate] < 15 ml/min/1.73m²",
+                "foundationReference": ""
+            },
+            {
+                "title": "end stage chronic renal failure",
+                "foundationReference": ""
+            },
+            {
+                "title": "end stage kidney disease",
+                "foundationReference": ""
+            },
+            {
+                "title": "end stage kidney failure",
+                "foundationReference": ""
+            },
+            {
+                "title": "end stage renal disease",
+                "foundationReference": ""
+            },
+            {
+                "title": "end stage renal failure",
+                "foundationReference": ""
+            },
+            {
+                "title": "kidney disease, stage 5",
+                "foundationReference": ""
+            },
+            {
+                "title": "kidney disease, stage V",
+                "foundationReference": ""
+            },
+            {
+                "title": "renal disease, stage 5",
+                "foundationReference": ""
+            },
+            {
+                "title": "renal disease, stage V",
+                "foundationReference": ""
+            },
+            {
+                "title": "Chronic kidney disease, stage 5, not on dialysis",
+                "foundationReference": "http://id.who.int/icd/entity/522394067"
+            },
+            {
+                "title": "CKD- [chronic kidney disease] stage 5 not on dialysis",
+                "foundationReference": "http://id.who.int/icd/entity/522394067"
+            },
+            {
+                "title": "chronic renal failure, stage 5 not on dialysis",
+                "foundationReference": "http://id.who.int/icd/entity/522394067"
+            },
+            {
+                "title": "Chronic kidney disease, stage 5, on dialysis",
+                "foundationReference": "http://id.who.int/icd/entity/1726595166"
+            },
+            {
+                "title": "CKD - [chronic kidney disease] stage 5 on dialysis",
+                "foundationReference": "http://id.who.int/icd/entity/1726595166"
+            },
+            {
+                "title": "chronic renal failure, stage 5 on dialysis",
+                "foundationReference": "http://id.who.int/icd/entity/1726595166"
+            },
+            {
+                "title": "end stage renal failure of dialysis",
+                "foundationReference": "http://id.who.int/icd/entity/1726595166"
+            },
+            {
+                "title": "end stage renal failure on haemodialysis",
+                "foundationReference": "http://id.who.int/icd/entity/1726595166"
+            },
+            {
+                "title": "Renal retinitis in chronic kidney disease, stage 5",
+                "foundationReference": "http://id.who.int/icd/entity/284627949"
+            }
+        ],
+        "relatedEntitiesInMaternalChapter": [
+            "http://id.who.int/icd/entity/562199727"
+        ],
+        "relatedEntitiesInPerinatalChapter": [
+            "http://id.who.int/icd/entity/1635967154"
+        ],
+        "codingNote": "",
+        "foundationChildElsewhere": [
+            {
+                "title": "Albuminurica retinopathy",
+                "foundationReference": "http://id.who.int/icd/entity/2097971745"
+            }
+        ],
+        "postcoordination_scale": [
+            {
+                "@id": "http://id.who.int/icd/release/11/2026-01/mms/820638928/postcoordinationScale/hasManifestation",
+                "axisName": "http://id.who.int/icd/schema/hasManifestation",
+                "requiredPostcoordination": "false",
+                "allowMultipleValues": "AllowAlways",
+                "scaleEntity": [
+                    "http://id.who.int/icd/release/11/2026-01/mms/1002499710"
+                ]
+            },
+            {
+                "@id": "http://id.who.int/icd/release/11/2026-01/mms/820638928/postcoordinationScale/associatedWith",
+                "axisName": "http://id.who.int/icd/schema/associatedWith",
+                "requiredPostcoordination": "false",
+                "allowMultipleValues": "AllowAlways",
+                "scaleEntity": [
+                    "http://id.who.int/icd/release/11/2026-01/mms/2000854880/other",
+                    "http://id.who.int/icd/release/11/2026-01/mms/1932345217/unspecified"
+                ]
+            },
+            {
+                "@id": "http://id.who.int/icd/release/11/2026-01/mms/820638928/postcoordinationScale/hasCausingCondition",
+                "axisName": "http://id.who.int/icd/schema/hasCausingCondition",
+                "requiredPostcoordination": "true",
+                "allowMultipleValues": "AllowAlways",
+                "scaleEntity": [
+                    "http://id.who.int/icd/release/11/2026-01/mms/465177735",
+                    "http://id.who.int/icd/release/11/2026-01/mms/924915526",
+                    "http://id.who.int/icd/release/11/2026-01/mms/1783829886",
+                    "http://id.who.int/icd/release/11/2026-01/mms/1184209951",
+                    "http://id.who.int/icd/release/11/2026-01/mms/1467154806",
+                    "http://id.who.int/icd/release/11/2026-01/mms/1210263011",
+                    "http://id.who.int/icd/release/11/2026-01/mms/1746821938",
+                    "http://id.who.int/icd/release/11/2026-01/mms/854539401",
+                    "http://id.who.int/icd/release/11/2026-01/mms/1490912126",
+                    "http://id.who.int/icd/release/11/2026-01/mms/4407978"
+                ]
+            }
+        ],
+        "browserUrl_foundation": "https://icd.who.int/browse/2026-01/foundation/en#820638928",
+        "fully_specified_name_foundation": "",
+        "long_definition_foundation": "A disease of the kidney, caused by exposure to another disease, condition, or disorder, commonly diabetes mellitus, hypertension, or glomerulonephritis. This disease is characterized by a gradual rise in serum creatinine, severely reduced renal function, and end stage kidney damage with a glomerular filtration rate of less than 15 millilitres per minute per 1.73 square metre for over 3 months. Confirmation is by estimated glomerular filtration rate, blood testing for creatinine, urinalysis, and abdominal ultrasound to differentiate chronic kidney disease from acute renal failure.",
+        "parent_foundation": [
+            "http://id.who.int/icd/entity/412389819"
+        ],
+        "synonyms_foundation": [
+            "CKD - [chronic kidney disease] stage 5",
+            "ESRD - [end stage renal diseases]",
+            "ESRF - [end stage renal failure]",
+            "chronic renal disease, stage V",
+            "chronic renal failure, stage 5",
+            "eGFR - [estimated glomerular filtration rate] < 15 ml/min/1.73m²",
+            "end stage chronic renal failure",
+            "end stage kidney disease",
+            "end stage kidney failure",
+            "end stage renal disease",
+            "end stage renal failure",
+            "kidney disease, stage 5",
+            "kidney disease, stage V",
+            "renal disease, stage 5",
+            "renal disease, stage V"
+        ]
+    },
+    {
+        "code": "1F66.0",
+        "foundation_uri": "http://id.who.int/icd/entity/709184369",
+        "mms_link": "http://id.who.int/icd/release/11/2026-01/mms/709184369",
+        "browserUrl": "https://icd.who.int/browse/2026-01/mms/en#709184369",
+        "title": "Loiasis",
+        "fully_specified_name": "Infections due to Loa Loa",
+        "parent_mms": [
+            "http://id.who.int/icd/release/11/2026-01/mms/1975325075"
+        ],
+        "class_kind_mms": "category",
+        "definition_mms": "A disease caused by an infection with the parasitic worm Loa loa. This disease is characterised by Calabar swellings found anywhere on the body (commonly found near joints). This disease may also present with generalised itching, muscle pain, joint pain, fatigue or may be asymptomatic. Transmission is through the bite of an infected fly (genus Chrysops). Confirmation is by identification of adult Loa loa in the skin or eye, Loa loa microfilariae in a blood sample obtained in the day (1000 - 1400), or detection of antibodies against Loa loa in a blood sample.",
+        "inclusion_mms": [
+            "Calabar swelling",
+            "Eye worm disease of Africa",
+            "Loa loa infestation"
+        ],
+        "exclusion_mms": [],
+        "index_term_synonyms": [
+            {
+                "title": "Loiasis",
+                "foundationReference": ""
+            },
+            {
+                "title": "African eyeworm disease",
+                "foundationReference": ""
+            },
+            {
+                "title": "Calabar swelling",
+                "foundationReference": ""
+            },
+            {
+                "title": "Eye worm disease of Africa",
+                "foundationReference": ""
+            },
+            {
+                "title": "Loa loa infestation",
+                "foundationReference": ""
+            },
+            {
+                "title": "Infections due to Loa Loa",
+                "foundationReference": ""
+            },
+            {
+                "title": "Chylocele of tunica vaginalis in loiasis",
+                "foundationReference": "http://id.who.int/icd/entity/1352356285"
+            },
+            {
+                "title": "Parasitic infestation of eyelid in loiasis",
+                "foundationReference": "http://id.who.int/icd/entity/1740926441"
+            }
+        ],
+        "relatedEntitiesInMaternalChapter": [],
+        "relatedEntitiesInPerinatalChapter": [
+            "http://id.who.int/icd/entity/1945127438"
+        ],
+        "codingNote": "",
+        "foundationChildElsewhere": [],
+        "postcoordination_scale": [
+            {
+                "@id": "http://id.who.int/icd/release/11/2026-01/mms/709184369/postcoordinationScale/specificAnatomy",
+                "axisName": "http://id.who.int/icd/schema/specificAnatomy",
+                "requiredPostcoordination": "false",
+                "allowMultipleValues": "AllowAlways",
+                "scaleEntity": [
+                    "http://id.who.int/icd/release/11/2026-01/mms/1644747126",
+                    "http://id.who.int/icd/release/11/2026-01/mms/687250607",
+                    "http://id.who.int/icd/release/11/2026-01/mms/1509166126"
+                ]
+            },
+            {
+                "@id": "http://id.who.int/icd/release/11/2026-01/mms/709184369/postcoordinationScale/hasManifestation",
+                "axisName": "http://id.who.int/icd/schema/hasManifestation",
+                "requiredPostcoordination": "false",
+                "allowMultipleValues": "AllowAlways",
+                "scaleEntity": [
+                    "http://id.who.int/icd/release/11/2026-01/mms/1251112127"
+                ]
+            }
+        ],
+        "browserUrl_foundation": "https://icd.who.int/browse/2026-01/foundation/en#709184369",
+        "fully_specified_name_foundation": "Infections due to Loa Loa",
+        "long_definition_foundation": "Loiasis is a filariasis caused by nematodes of the genus Loa loa occurring exclusively in the rainforests of Central Africa with a prevalence in hyperendemic regions of between 3 and 30% of the general population. It is transmitted via horseflies of the genus Chrysops. Symptoms may appear 1 to over 15 years after infection, and include localised transient swellings (Calabar swellings), and adult worm migration under the skin or conjunctiva of the eye. Severe complications have also been reported: endocarditis, glomerulonephritis, and encephalitis, although the latter is mainly linked to improper treatment. Diethylcarbamazine is the classical treatment, but ivermectine-based treatments have not yet been clearly assessed.",
+        "parent_foundation": [
+            "http://id.who.int/icd/entity/1975325075",
+            "http://id.who.int/icd/entity/1721029777"
+        ],
+        "synonyms_foundation": [
+            "African eyeworm disease",
+            "Calabar swelling",
+            "Eye worm disease of Africa",
+            "Loa loa infestation"
+        ]
+    }
+]
