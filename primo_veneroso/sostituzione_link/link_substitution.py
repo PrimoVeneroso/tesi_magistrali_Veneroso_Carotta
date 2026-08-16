@@ -22,11 +22,21 @@ def sostituzione_link(link):
 
 print("caricamento datasets")
 
-with open("../mms_foundation_merge/fusione_con_campi_mancanti.json","r",encoding="utf-8") as f:
+with open("fusione_con_campi_mancanti.json","r",encoding="utf-8") as f:
      data=json.load(f)
 
 with open("../foundation/icd11_foundation_completo.json","r",encoding="utf-8") as g:
     foundation=json.load(g)
+
+
+"""
+devo sistemare il problema della perdita di dati in alcuni campi che non sono formati solo da title e link
+
+- postcoordination_scalet
+
+"""
+
+
 
 
 # creo set per il controllo degli uri non presenti nell'mms ma nella foundation
@@ -137,8 +147,6 @@ for item in data: #ciclo nel mio dataset
                     if not titolo and id_num:
                         titolo = foundation_id_and_title.get(id_num, "")
 
-
-
                     # si crea un dict intermedio per poterlo arricchire con campi
 
                     nuovo_dict = {
@@ -158,7 +166,7 @@ for item in data: #ciclo nel mio dataset
             item[key] = nuova_lista
 
 # 3. Salvataggio su file finale
-file_output = "fusione_sostituzione_link_dict.json"
+file_output = "fusione_sostituzione_link_dict_2.json"
 with open(file_output, "w", encoding="utf-8") as h:
     json.dump(data, h, indent=4, ensure_ascii=False)
 
