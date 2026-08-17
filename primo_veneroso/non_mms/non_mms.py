@@ -56,7 +56,7 @@ campi_da_controllare=["exclusion_mms",
                       "index_term_synonyms",
                       "parent_foundation",
                       "postcoordination_scale",
-                      "elatedEntitiesInMaternalChapter",
+                      "relatedEntitiesInMaternalChapter",
                       "relatedEntitiesInPerinatalChapter"]
 
 #per ebitare doppie entità
