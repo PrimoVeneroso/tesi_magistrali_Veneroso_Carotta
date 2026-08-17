@@ -108,28 +108,3 @@ with open("external_entities.json","w",encoding="utf-8") as j:
 
                     
 
-
-
-"""
-
-            if isinstance(valore,dict):
-                print("c'è almeno un dict")
-            elif isinstance(valore,str):
-                print("c'è almeno una str")
-             elif isinstance(elemento,list):
-                print("c'è almeno una lista")
-
-
-                        if singolo.startswith("http://"):
-                            uri_da_controllare=estrai_id_numerico(singolo)
-
-                            if uri_da_controllare:
-                                risultato,uri=controllo_uri(uri_da_controllare,id_unici)
-
-                                if risultato == None:
-                                    valori_esterni.add(uri)
-                                    print(f"l'uri {uri} non è presente nell mms appartiene alla key {key}" )
-
-    
-"""
-
