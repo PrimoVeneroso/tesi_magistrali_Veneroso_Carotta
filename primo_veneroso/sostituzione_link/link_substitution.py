@@ -1,40 +1,47 @@
 import json
+import re
 
 
-def sostituzione_link(link):
-    if not isinstance(link,str) or not link:
-        return "",""
+ENTITY_BASE_URI = "http://id.who.int/icd/entity/"
 
-    partial_link=""
-    reg_exp_entity="http://id.who.int/icd/entity/"
-    reg_exp_release="http://id.who.int/icd/release/11/2026-01/mms/"
-    reg_exp_browser="https://icd.who.int/browse/2026-01/foundation/en#"
+def estrai_id(uri):
 
-    if reg_exp_entity in link:
-       partial_link=link.split('/entity/')[-1].split('/')[0]
-    elif reg_exp_release in link:
-         partial_link=link.split('/mms/')[-1].split('/')[0]
-    if partial_link:
-       return reg_exp_browser+ partial_link, partial_link
+    if not isinstance(uri,str):
+       return ""
+    match = re.search(r"/(?:entity|mms|foundation/en#|mms/en#)/(\d+)", uri)
+    if match:
+        return match.group(1)
 
-    return link, ""
+    return ""
 
 
-print("caricamento datasets")
 
-with open("fusione_con_campi_mancanti.json","r",encoding="utf-8") as f:
+
+def sostituzione_link_titolo(link, titolo_fallback, dizionario_foundation):
+
+    entity_id= estrai_id(link)
+
+    if entity_id:
+        nuovo_link = f"{ENTITY_BASE_URI}{entity_id}"
+        titolo_risolto= dizionario_foundation.get(entity_id,"")
+        titolo_finale = titolo_risolto if titolo_risolto else (titolo_fallback or "")
+    else:
+        nuovo_link= link if link else ""
+        titolo_finale=titolo_fallback if titolo_fallback else ""
+    return {"link": nuovo_link, "title":titolo_finale}
+
+
+
+print("caricamento datasets...")
+
+with open("../../fusione_con_campi_mancanti.json","r",encoding="utf-8") as f:
      data=json.load(f)
 
-with open("../foundation/icd11_foundation_completo.json","r",encoding="utf-8") as g:
+with open("../../../foundation/icd11_foundation_completo.json","r",encoding="utf-8") as g:
     foundation=json.load(g)
 
+print("datasets caricati ")
 
-"""
-devo sistemare il problema della perdita di dati in alcuni campi che non sono formati solo da title e link
-
-- postcoordination_scalet
-
-"""
 
 
 
@@ -44,15 +51,18 @@ foundation_id_and_title={}
 for item in foundation:
     source_uri = item.get("@id", "") #ottengo l'uri completo
     #transient_dict= {"@id": source_uri, "title": title_f}
-
     if source_uri:
-       uri_key_f = source_uri.split('/entity/')[-1].split('/')[0] #estraggo solo la parte numerica
+       uri_key_f = estrai_id(source_uri) #estraggo solo la parte numerica
+       if uri_key_f:
 
-       title_obj = item.get("title")
-       title_val = title_obj.get("@value", "") if isinstance(title_obj, dict) else ""
-
-        # Memorizzazione atomica: ID -> Titolo testuale
-       foundation_id_and_title[uri_key_f] = title_val
+        title_obj = item.get("title")
+        if isinstance(title_obj, dict):
+            title_val = title_obj.get("@value", "")
+        elif isinstance(title_obj, str):
+            title_val = title_obj
+        else:
+            title_val = ""
+        foundation_id_and_title[uri_key_f] = title_val
 
 
 
@@ -67,107 +77,74 @@ for item in data:
 new_fusione=[]
 
 
-campi_da_controllare=[
-        "parent_mms", #lista con solo link (con release)
-        "exclusion_mms", #lista di dict con foundationReference (ha link con entity)
-        "index_term_synonyms",#lista con dict con foundationReference come key (ha link con entity)
-        "postcoordination_scale", # ha "scaleEntity" come chiave di un dict all'interno di una lista, (ha link con release)
+campi_da_controllare_lista_stringhe=[
+        "parent_mms", #lista con solo link (con release),
         "parent_foundation", #lista di link (ha link con entity)
         "relatedEntitiesInMaternalChapter", #ha lista solo link (con entity)
-        "relatedEntitiesInPerinatalChapter", #ha lista solo link (con enity)
+        "relatedEntitiesInPerinatalChapter" #ha lista solo link (con enity)
+        ]
+campi_da_controllare_dict=[
+         "exclusion_mms", #lista di dict con foundationReference (ha link con entity)
+        "index_term_synonyms",#lista con dict con foundationReference come key (ha link con entity)
+       # "postcoordination_scale", # ha "scaleEntity" come chiave di un dict all'interno di una lista, (ha link con release)
         "foundationChildElsewhere" #ha foundationReference in un dict (link con entity)
         ]
 
 
 for item in data: #ciclo nel mio dataset
 
-       for key in campi_da_controllare:
-        valore = item.get(key)
+    #parto dai cmapi con le stringhe
+    for key in campi_da_controllare_lista_stringhe:
+        valori = item.get(key)
 
-        if isinstance(valore, list) and valore:
+        if isinstance(valori,list) and valori:
             nuova_lista=[]
 
-            for elemento in valore: #ciclo nella lista
+            for raw_link in valori:
+                if isinstance(raw_link,str):
+                    nodo_trasformato= sostituzione_link_titolo(link=raw_link,titolo_fallback="",dizionario_foundation=foundation_id_and_title)
+                    nuova_lista.append(nodo_trasformato)
+            item[key]=nuova_lista
+    for key in campi_da_controllare_dict:
+        valori =item.get(key)
+        if isinstance(valori,list) and valori:
+            nuova_lista=[]
 
-               if isinstance(elemento, str):
+            for elemento in valori:
+                if isinstance(elemento,dict):
+                    raw_link=elemento.get("foundationReference") or elemento.get("link") or elemento.get("@id") or ""
+                    raw_titolo = elemento.get("title") or elemento.get("label","")
+                    if isinstance(raw_titolo,dict):
+                        raw_titolo=raw_titolo.get("@value","")
+                    nodo_trasformato= sostituzione_link_titolo(link=raw_link,titolo_fallback=raw_titolo,dizionario_foundation=foundation_id_and_title)
+                    nuova_lista.append(nodo_trasformato)
+            item[key]= nuova_lista
 
-                  vecchio_link=elemento #variabile temporanea da inserire nella funzione
-                  nuovo_link, id_num =sostituzione_link(vecchio_link) #ottengo il nuovo link
+    # caso della postcoordination_scale che è un caso particolare
+    postcoord = item.get("postcoordination_scale")
+    if isinstance(postcoord,list) and postcoord:
+        nuovo_postcoord=[]
+        for scale_item in postcoord:
+            if isinstance(scale_item,dict):
+                #clono il sotto-dict perchè ha tatni campi
+                postsc_modificato= dict(scale_item)
+                postsc_entities = scale_item.get("scaleEntity",[])
 
-                  #devo ottenere il title per il dict che creo
-                  titolo=foundation_id_and_title.get(id_num,"")
-                  nuova_lista.append({
-                            "link": nuovo_link,
-                            "title": titolo
-                        })
-                #parte più complessa andrebbe resa più generale
-               elif isinstance(elemento,dict): #l'altra opzione se è un dict
+                if isinstance(postsc_entities,list):
+                    nuove_entity=[]
+                    for raw_link in postsc_entities:
+                        if isinstance(raw_link, str): #controllo e sostituisco i link con inuovi link e
+                            nodo_trasformato=sostituzione_link_titolo(link=raw_link,titolo_fallback="",dizionario_foundation=foundation_id_and_title)
 
-                    vecchio_link=(elemento.get("foundationReference") or
-                                   elemento.get("scaleEntity") or
-                                   elemento.get("id") or ""
-                                    )
+                            nuove_entity.append(nodo_trasformato)
+                    postsc_modificato["scaleEntity"]=nuove_entity
 
-                    nuovo_link, id_num =sostituzione_link(vecchio_link) #ottengo il nuovo link
-                    titolo=""
+                nuovo_postcoord.append(postsc_modificato)
+            item["postcoordination_scale"]=nuovo_postcoord
 
-
-                    if isinstance(elemento.get("label"), dict):
-                        titolo= elemento["label"].get("@value","")
-
-
-                    elif "title" in elemento and isinstance(elemento["title"],str):
-                        titolo= elemento["title"]
-
-                    elif key == "postcoordination_scale":
-
-                        id_temporaneo = elemento.get("scaleEntity") or elemento.get("axisName") or ""
-
-                        # Se è una lista, estrae il primo elemento valido o itera
-                        if isinstance(id_temporaneo, list) and id_temporaneo:
-                            uri_target = str(id_temporaneo[0])
-                        elif isinstance(id_temporaneo, str):
-                            uri_target = id_temporaneo
-                        else:
-                            uri_target = ""
-
-                        # Parsing sicuro dell'identificativo numerico
-                        if "/mms/" in uri_target:
-                            id_ricerca = uri_target.split('/mms/')[-1].split('/')[0]
-                        elif "/entity/" in uri_target:
-                            id_ricerca = uri_target.split('/entity/')[-1].split('/')[0]
-                        else:
-                            id_ricerca = id_num  # Fallback sull'id_num estratto in precedenza
-
-                        titolo = foundation_id_and_title.get(id_ricerca, "")
-
-                        titolo=foundation_id_and_title.get(id_ricerca,"")
-
-
-                    if not titolo and id_num:
-                        titolo = foundation_id_and_title.get(id_num, "")
-
-                    # si crea un dict intermedio per poterlo arricchire con campi
-
-                    nuovo_dict = {
-                        "link": nuovo_link,
-                        "title": titolo
-                    }
-
-                    # si aggiungono i campi extra che altrimenti sarebbero assenti nel nuovo json
-                    if key == "postcoordination_scale":
-                        for campo_extra in ("@id", "axisName", "requiredPostcoordination", "allowMultipleValues", "scaleEntity"):
-                            if campo_extra in elemento:
-                                nuovo_dict[campo_extra] = elemento[campo_extra]
-
-                    nuova_lista.append(nuovo_dict)
-
-
-            item[key] = nuova_lista
-
-# 3. Salvataggio su file finale
+print("sto scrivendo il file")
 file_output = "fusione_sostituzione_link_dict_2.json"
 with open(file_output, "w", encoding="utf-8") as h:
     json.dump(data, h, indent=4, ensure_ascii=False)
 
-print(f"Trasformazione completata con successo! Salvato in: {file_output}")
+print(f"Processo concluso. Dataset serializzato in: {file_output}")
