@@ -1,7 +1,7 @@
 import json
 
 print("carico i dati")
-with open ("../fusione_sostituzione_link_dict.json","r",encoding="utf-8") as f:
+with open ("../fusione_sostituzione_link_dict_2.json","r",encoding="utf-8") as f:
     data=json.load(f)
 
 lista_index= "index_term_synonyms"
@@ -35,7 +35,7 @@ for item in data:
 
 print("creo il nuovo file")
 
-with open("lista_nuove_entity.csv","w",encoding="utf") as g:
+with open("lista_nuove_entity.md","w",encoding="utf") as g:
 
     for entity in other_entities:
         g.write(entity+";\n")
