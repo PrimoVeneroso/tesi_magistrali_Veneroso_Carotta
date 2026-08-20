@@ -9,9 +9,7 @@ with open("icd11_foundation_full.json", "r", encoding="utf-8") as f:
     foundation_data = json.load(f)
 
 
-
-
-#########  estraggo le informazioni che mi servono --> posso generalizzare questa parte ad estrazione dei campi di interesse  
+### funzione di estrazione dei dati  
 def extract_data1(dataset, fields_to_extract): ## quindi qui poi chiamo la funzione con il mio dataset e i miei fields_of_interest
 
     if not fields_to_extract: # se non c'è il mio campo di interesse, allora niente
@@ -43,7 +41,7 @@ def extract_data1(dataset, fields_to_extract): ## quindi qui poi chiamo la funzi
         print("i dati non sono nè una lista nè un dizionario")
         return []
     
-##### lookup --> per collegare ID(link) di ogni elemento al suo titolo, prendendo i dati sia dalla Foundation che dall’MMS
+### Funzione per creare un lookup per collegare ID - link di ogni elemento al suo titolo, prendendo i dati sia dalla Foundation che dall’MMS
 def create_lookup_title(foundation_full_data, mms_full_data):
     lookup_title = {}
 
@@ -60,9 +58,11 @@ def create_lookup_title(foundation_full_data, mms_full_data):
             elif isinstance(title_foundation_dict, str): #se è una stringa 
                 lookup_title[current_id_found] = title_foundation_dict
 
-    # 2. aggiungo/sovrascrivo i titoli dell'mms allo stesso modo 
+    # aggiungo/sovrascrivo i titoli dell'mms allo stesso modo 
     for mms_data in mms_full_data: #per ogni elemento prendo il titolo, se è dizionario estraggo value 
         title_mms_dict = mms_data.get("title", {})
+        if not title_mms_dict:
+            continue
 
         if isinstance(title_mms_dict, dict):
             titolo_mms = title_mms_dict.get("@value", "")
@@ -79,8 +79,8 @@ def create_lookup_title(foundation_full_data, mms_full_data):
 
     return lookup_title
 
-#######  delle mie informazioni estratte però non voglio proprio tutto tutto, quindi seleziono anche che informazioni prendere di quelle che ho estratto
-def select_information(dataset, fields_to_extract, lookup_title=None):
+#### funzione per selezionare che informazioni prendere di quelle che ho estratto
+def select_information(dataset, fields_to_extract, lookup_title=None, nome_dataset=""):
 
     if lookup_title is None: 
         lookup_title = {}
@@ -96,9 +96,6 @@ def select_information(dataset, fields_to_extract, lookup_title=None):
 
         for chiave, valore in element.items(): # per ogni chiave e valore 
 
-            if chiave not in elements_without_ref: # creazione della chiave vuota per la categoria se non esiste ancora
-                elements_without_ref[chiave] = []
-
             if isinstance (valore,str) or valore is None: # se il valore è una stringa, allora top tengo quel chiave:valore
                 processed_element[chiave] = valore
             
@@ -108,83 +105,94 @@ def select_information(dataset, fields_to_extract, lookup_title=None):
             elif isinstance (valore,list): # se il valore è una lista, allora l'elaborazione è un po' più complicata ... cioè si ricomincia 
                 processed_list = [] # creo una nuova lista dove mettere le info che mi interessano
 
-                for element_list in valore: # per ogni elemento vado a vedere di che tipo è: 
-                    if isinstance(element_list,str): # se è una stringa, allora devo fare due cose (anche se so già che quasi sempre un link, ma meglio verificarlo)
-                        if element_list.startswith("http"): #se l'elemento è un link, allora prima lo cerco nel mio lookup_title, se lo trovo allora salva il titolo associato --> così poi potrò avere titolo e link
-                            if element_list in lookup_title:
-                                title_found = lookup_title[element_list]
-                            else: 
-                                url_parts = element_list.rstrip('/').split('/') #se l'elemento è un link ma non è nel mio lookup_title, allora rimuove gli slash finali, spezza l'url in una lista di parole ogni volta che incontra uno slash e salva 
+                if chiave == "postcoordinationScale":
+                    for scale_item in valore:
+                        scale_entity_list = []
+                        for entity_url in scale_item.get("scaleEntity", []):
+                            if entity_url in lookup_title:
+                                title_found = lookup_title[entity_url]
+                            else:
+                                url_parts = entity_url.rstrip('/').split('/')
                                 last_element = url_parts[-1]
                                 if last_element in ["other", "unspecified"]:
-                                    entity_id = f"{url_parts[-2]}/{last_element}" #così salvo l'ID/other o unspecified per non confonderli con l'elemeneto che ha solo lo stesso id
-                                else: 
+                                    entity_id = f"{url_parts[-2]}/{last_element}"
+                                else:
                                     entity_id = last_element
 
-                                if entity_id == "mms": #invece del numero ID ci potrebbere essere mms se siamo alla radice 
+                                if entity_id == "mms":
                                     title_found = "Nodo radice ICD-11"
-                                else: 
-                                    title_found = "Titolo mancante" #alla fine si arrende 
+                                else:
+                                    title_found = "Titolo mancante"
 
-                            chiave_ref = "foundationReference" if "/entity/" in element_list else "linearizationReference" #se trova entity nella parola è una foundationReference, altrimenti una linearizationReference --
-                        
-                            processed_list.append({
-                            "title": title_found,
-                            chiave_ref: element_list
+                            chiave_ref = "foundationReference" if "/entity/" in entity_url else "linearizationReference"
+
+                            scale_entity_list.append({
+                                "title": title_found,
+                                chiave_ref: entity_url
                             })
 
-                        else: 
-                            processed_list.append(element_list)
-                    
-                    elif isinstance(element_list,dict): # nel caso in cui invece avessimo a che fare con un dizionario (vedi il caso indexTerm)
-                        title = element_list.get("label", {}).get("@value", "") #per label devo entrare fino a value 
-                        foundation_ref = element_list.get("foundationReference", "") #poi estraggo le reference
-                        linearization_ref = element_list.get("linearizationReference", "")
-                        
-                        if not foundation_ref and not linearization_ref:
-                            if title not in elements_without_ref[chiave]:
-                                elements_without_ref[chiave].append(title)
-
-
                         processed_list.append({
-                            "title": title,
-                            "foundationReference": foundation_ref,
-                            "linearizationReference": linearization_ref
+                            "@id": scale_item.get("@id", ""),
+                            "requiredPostcoordination": scale_item.get("requiredPostcoordination", ""),
+                            "allowMultipleValues": scale_item.get("allowMultipleValues", ""),
+                            "scaleEntity": scale_entity_list
                         })
+
+                else: 
+                    for element_list in valore: # per ogni elemento vado a vedere di che tipo è: 
+                        if isinstance(element_list,str): # se è una stringa, allora devo fare due cose (anche se so già che quasi sempre un link, ma meglio verificarlo)
+                            if element_list.startswith("http"): #se l'elemento è un link, allora prima lo cerco nel mio lookup_title, se lo trovo allora salva il titolo associato --> così poi potrò avere titolo e link
+                                if element_list in lookup_title:
+                                    title_found = lookup_title[element_list]
+                                else: 
+                                    url_parts = element_list.rstrip('/').split('/') #se l'elemento è un link ma non è nel mio lookup_title, allora rimuove gli slash finali, spezza l'url in una lista di parole ogni volta che incontra uno slash e salva 
+                                    last_element = url_parts[-1]
+                                    if last_element in ["other", "unspecified"]:
+                                        entity_id = f"{url_parts[-2]}/{last_element}" #così salvo l'ID/other o unspecified per non confonderli con l'elemeneto che ha solo lo stesso id
+                                    else: 
+                                        entity_id = last_element
+
+                                    if entity_id == "mms": #invece del numero ID ci potrebbere essere mms se siamo alla radice 
+                                        title_found = "Nodo radice ICD-11"
+                                    else: 
+                                        title_found = "Titolo mancante" #alla fine si arrende 
+
+                                chiave_ref = "foundationReference" if "/entity/" in element_list else "linearizationReference" #se trova entity nella parola è una foundationReference, altrimenti una linearizationReference --
+                            
+                                processed_list.append({
+                                "title": title_found,
+                                chiave_ref: element_list
+                                })
+
+                            else: 
+                                processed_list.append(element_list)
+                        
+                        elif isinstance(element_list,dict): # nel caso in cui invece avessimo a che fare con un dizionario (vedi il caso indexTerm)
+                            title = element_list.get("label", {}).get("@value", "") #per label devo entrare fino a value 
+                            foundation_ref = element_list.get("foundationReference", "") #poi estraggo le reference
+                            linearization_ref = element_list.get("linearizationReference", "")
+                            
+                            if not foundation_ref and not linearization_ref:
+                                elements_without_ref.setdefault(chiave, [])
+                                if title not in elements_without_ref[chiave]:
+                                    elements_without_ref[chiave].append(title)
+
+
+                            processed_list.append({
+                                "title": title,
+                                "foundationReference": foundation_ref,
+                                "linearizationReference": linearization_ref
+                            })
                 processed_element[chiave] = processed_list
 
         selected_data.append(processed_element)
-    
-    print(f"Termini unici senza reference link (MMS e FOUND)")
-    for categoria, lista_orfani in elements_without_ref.items():
-        if lista_orfani: # Stampo solo se c'è almeno un elemento in quella categoria
-            print(f"  - {categoria}: {len(lista_orfani)}")
-
         
     return selected_data
 
-""" 
-########## esecuzione di prova solo mms  --> poi si cancella  --> fino qua tutto ok
 
-fields_of_interest_mms = ["code", "@id", "source", "title", "parent",  "child" , "foundationChildElsewhere", "definition", "longDefinition", "indexTerm", "inclusion", "exclusion", "relatedEntitiesInMaternalChapter", "relatedEntitiesInPerinatalChapter"]
+#### definire il confronto tra l'mms e la foundation per recuperare il massimo delle informazioni senza duplicati 
 
-lookup_prova = create_lookup_title(foundation_full_data=foundation_data, mms_full_data=mms_data)
-print(f"lookup creato - trovati {len(lookup_prova)} titoli")
-
-dati_finali = select_information( dataset=mms_data,  fields_to_extract=fields_of_interest_mms, lookup_title = lookup_prova)
-
-file_output = "icd11_dati_prova.json"
-with open(file_output, "w", encoding="utf-8") as f:
-    json.dump(dati_finali, f, indent=4, ensure_ascii=False)
-print("prova mms finita")
-
-"""
-
-#### ora devo definire il confronto tra l'mms e la foundation per recuperare il massimo delle informazioni senza duplicati 
-### non so sinceramente come renderla generalizzata 
-
-# inizio provando a generalizzare alcuni pezzi che avevo ripetuto un paio di volte in questa fare 
-## funzione per l'operazione che facevo sulle definition e longDefinition
+## funzione per confronto di testi (definition)
 def confronta_text(mms_text, found_text): #testo mms e testo foundation
     other_definitions = [] # apro questa lista in cui mettere definizioni diverse (non ce ne dovrebbero essere)
     
@@ -199,16 +207,20 @@ def confronta_text(mms_text, found_text): #testo mms e testo foundation
  
     return mms_text, other_definitions
 
-# funzione per l'operazione che facevo su inclusion e exclusion --> quindi su delle liste con title e delle reference
-def confronta_list(mms_list, found_list):
+## funzione per confronto di liste con title e reference (exclusions)
+def confronta_list(mms_list, found_list, entity_title=""):
     titles = [] #lista per mettere i titoli già incontrati
     list_fin = [] #lista finale
+    entity_title_norm = entity_title.strip().lower() if entity_title else ""
 
     for element in mms_list: #per ogni elemento nell'MMS, 
         if isinstance(element, dict): #se è un dizionario, recupero il titolo
             title = element.get("title", "")
         else:
-            ""
+            title = ""
+        
+        if title.strip().lower() == entity_title_norm and entity_title_norm:
+            continue
         
         if title not in titles: #controllo non sia già nella lista di titoli incontrato, se è nuovo lo aggiungo sia alla lista finale che alla lista di controllo
             list_fin.append(element)
@@ -219,7 +231,10 @@ def confronta_list(mms_list, found_list):
         if isinstance(element, dict):
             title = element.get("title", "")
         else:
-            ""
+            title = ""
+        
+        if title.strip().lower() == entity_title_norm and entity_title_norm:
+            continue
 
         if title not in titles:
             list_fin.append(element)
@@ -227,8 +242,7 @@ def confronta_list(mms_list, found_list):
         
     return list_fin
 
-
-# funzione per trattare i parent --> è solo per i parent però... se volessi confrontare i children dovrei comunque rifarla 
+## funzione per trattare i parent 
 def confronta_parents(parent_mms, parent_foundation):
     id_parent_mms = [] #lista parent già presenti 
     for element in parent_mms: #per ogni parent nell'mms 
@@ -248,11 +262,7 @@ def confronta_parents(parent_mms, parent_foundation):
  
     return other_parents
 
-
-## non mi pare ci siano altre cose che confronto ---> anche se in realtà dovrei confrontare i children perché le informazioni non sono proprio sempre corrette ??????
-##### devo risolvere il problema di ripetizione tra alcuni termini dei sinonimi e le inclusioni
-
-# quindi passo alla funzione per confrontare le due risorse
+## funzione per confrontare mms e foundation
 def add_information(dataset_mms, dataset_foundation): ## qui ci faccio passare mms e foundation GIA' passati da select_information 
     # come prima cosa indicizzo il dataset_foundation
     foundation_indicizzata = {}
@@ -300,7 +310,7 @@ def add_information(dataset_mms, dataset_foundation): ## qui ci faccio passare m
             data["other_long_definition"] = other_longDefinition
  
         ## inclusion: unisco mms e foundation senza duplicati 
-        data["inclusion_mms_foundation"] = confronta_list(data.get("inclusion", []), data_foundation.get("inclusion", []))
+        data["inclusion_mms_foundation"] = confronta_list(data.get("inclusion", []), data_foundation.get("inclusion", []), entity_title=data.get("title", ""))
         data.pop("inclusion", None) ## dovuto aggiungere perché mi restituiva una copia dell'inclusion originale (boh)
  
         ## exclusion: stessa cosa
@@ -308,7 +318,7 @@ def add_information(dataset_mms, dataset_foundation): ## qui ci faccio passare m
         data.pop("exclusion", None)
  
         ## indexTerm (mms) + synonym (foundation sono stessa cosa, sono concettualmente la stessa informazione
-        data["index_term_synonym"] = confronta_list(data.get("indexTerm", []), data_foundation.get("synonym", []))
+        data["index_term_synonym"] = confronta_list(data.get("indexTerm", []), data_foundation.get("synonym", []), entity_title=data.get("title", ""))
         data.pop("indexTerm", None)
 
         #dato che ho visto che spesso i sinonimi e le inclusioni sono spesso identiche, allora le unisco 
@@ -318,13 +328,24 @@ def add_information(dataset_mms, dataset_foundation): ## qui ci faccio passare m
         data.pop("inclusion_mms_foundation", None)
 
  
-    print(f"CEntità mms senza corrispondenza in foundation: {mancanti_foundation_in_mms}")
+    print(f"Entità mms senza corrispondenza in foundation: {mancanti_foundation_in_mms}")
  
     return dataset_mms
- 
- 
-########## esecuzione: prima pulisco mms e foundation separatamente con select_information, poi le unisco con add_information
-fields_of_interest_mms = ["code", "@id", "source", "title", "parent", "child", "foundationChildElsewhere", "definition", "longDefinition", "indexTerm", "inclusion", "exclusion", "relatedEntitiesInMaternalChapter", "relatedEntitiesInPerinatalChapter"]
+
+### funzione per contare gli elementi senza reference 
+def count_entity_without_reference(dataset, campo):
+    titoli_unici = set()
+    for entity in dataset:
+        for element in entity.get(campo, []):
+            if isinstance(element, dict):
+                foundation_ref = element.get("foundationReference", "")
+                linearization_ref = element.get("linearizationReference", "")
+                if not foundation_ref and not linearization_ref:
+                    titoli_unici.add(element.get("title", ""))
+    return titoli_unici
+
+##### esecuzione: prima pulisco mms e foundation separatamente con select_information, poi le unisco con add_information
+fields_of_interest_mms = ["code", "@id", "source", "title", "parent", "child", "foundationChildElsewhere", "definition", "longDefinition", "indexTerm", "inclusion", "exclusion", "relatedEntitiesInMaternalChapter", "relatedEntitiesInPerinatalChapter", "postcoordinationScale", "codingNote" ]
 fields_of_interest_foundation = ["@id", "title", "parent", "definition", "longDefinition", "synonym", "inclusion", "exclusion"] # la foundation non ha "source" né "indexTerm" (ha "synonym" al posto suo), mi interessano solo quei campi che devo andare a confrontare con l'mms
  
 lookup_titoli = create_lookup_title(foundation_full_data=foundation_data, mms_full_data=mms_data)
@@ -334,15 +355,26 @@ data_mms_interest = select_information(dataset=mms_data, fields_to_extract=field
 data_foundation_interest = select_information(dataset=foundation_data, fields_to_extract=fields_of_interest_foundation, lookup_title=lookup_titoli)
  
 data_mmms_foundation = add_information(data_mms_interest, data_foundation_interest)
+
+titoli_senza_reference_totali = set()
+for campo in ["synonyms_and_inclusions", "exclusion_mms_foundation"]:
+    unici = count_entity_without_reference(data_mmms_foundation, campo)
+    print(f"Entità senza reference: - {campo}: {len(unici)}")
+    titoli_senza_reference_totali.update(unici)
+
+file_senza_ref = "titoli_senza_reference.txt"
+with open(file_senza_ref, "w", encoding="utf-8") as f:
+    # Li ordino alfabeticamente per comodità di lettura
+    for titolo in sorted(titoli_senza_reference_totali):
+        f.write(f"{titolo}\n")
+    
+
  
 file_output = "icd11_dati_uniti.json" 
 with open(file_output, "w", encoding="utf-8") as f:
     json.dump(data_mmms_foundation, f, indent=4, ensure_ascii=False)
  
 print(f"Salvate {len(data_mmms_foundation)} entità in '{file_output}'")
-
-
-
 
 
 
