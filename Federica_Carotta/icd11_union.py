@@ -79,14 +79,25 @@ def create_lookup_title(foundation_full_data, mms_full_data):
 
     return lookup_title
 
+def create_lookup_link(lookup_title): # lookup inverso
+    lookup_link = {}
+    
+    for link, titolo in lookup_title.items():
+        if titolo:
+            # Normalizziamo il titolo (tutto minuscolo e senza spazi extra)
+            titolo_norm = str(titolo).strip().lower()
+            lookup_link[titolo_norm] = link
+            
+    return lookup_link
+
 #### funzione per selezionare che informazioni prendere di quelle che ho estratto
-def select_information(dataset, fields_to_extract, lookup_title=None, nome_dataset=""):
+def select_information(dataset, fields_to_extract, lookup_title=None,lookup_link=None, nome_dataset=""):
 
     if lookup_title is None: 
         lookup_title = {}
+    if lookup_link is None:
+        lookup_link = {}
     
-    elements_without_ref = {} ## mi serve dopo per vedere quanti elementi sono senza links
-
     extracted_data = extract_data1(dataset, fields_to_extract) ## uso la funzione di prima per estrarre intanto le info dei campi che mi interessano 
 
     selected_data = [] # creo una lista dove andrò a mettere le mie informazioni
@@ -172,11 +183,15 @@ def select_information(dataset, fields_to_extract, lookup_title=None, nome_datas
                             foundation_ref = element_list.get("foundationReference", "") #poi estraggo le reference
                             linearization_ref = element_list.get("linearizationReference", "")
                             
-                            if not foundation_ref and not linearization_ref:
-                                elements_without_ref.setdefault(chiave, [])
-                                if title not in elements_without_ref[chiave]:
-                                    elements_without_ref[chiave].append(title)
+                            if not foundation_ref and not linearization_ref and title:
+                                title_norm = title.strip().lower()
+                                if title_norm in lookup_link:
+                                    link_found = lookup_link[title_norm]
 
+                                    if "/entity/" in link_found:
+                                        foundation_ref = link_found
+                                    else:
+                                        linearization_ref = link_found
 
                             processed_list.append({
                                 "title": title,
@@ -209,7 +224,7 @@ def confronta_text(mms_text, found_text): #testo mms e testo foundation
 
 ## funzione per confronto di liste con title e reference (exclusions)
 def confronta_list(mms_list, found_list, entity_title=""):
-    titles = [] #lista per mettere i titoli già incontrati
+    titles_norm = [] #lista per mettere i titoli già incontrati
     list_fin = [] #lista finale
     entity_title_norm = entity_title.strip().lower() if entity_title else ""
 
@@ -219,12 +234,15 @@ def confronta_list(mms_list, found_list, entity_title=""):
         else:
             title = ""
         
-        if title.strip().lower() == entity_title_norm and entity_title_norm:
+        title_norm = title.strip().lower()
+        if title_norm == entity_title_norm and entity_title_norm:
+            continue
+        if title_norm == entity_title_norm and entity_title_norm:
             continue
         
-        if title not in titles: #controllo non sia già nella lista di titoli incontrato, se è nuovo lo aggiungo sia alla lista finale che alla lista di controllo
+        if title_norm not in titles_norm: #controllo non sia già nella lista di titoli incontrato, se è nuovo lo aggiungo sia alla lista finale che alla lista di controllo
             list_fin.append(element)
-            titles.append(title)
+            titles_norm.append(title_norm)
 
 
     for element in found_list: #stessa cosa, ma passando ora la foundation, mi aggiugnerà alla lista finale SOLO quelli che non si ripetono
@@ -233,12 +251,13 @@ def confronta_list(mms_list, found_list, entity_title=""):
         else:
             title = ""
         
-        if title.strip().lower() == entity_title_norm and entity_title_norm:
+        title_norm = title.strip().lower()
+        if title_norm == entity_title_norm and entity_title_norm:
             continue
 
-        if title not in titles:
+        if title not in titles_norm:
             list_fin.append(element)
-            titles.append(title)
+            titles_norm.append(title_norm)
         
     return list_fin
 
@@ -349,10 +368,12 @@ fields_of_interest_mms = ["code", "@id", "source", "title", "parent", "child", "
 fields_of_interest_foundation = ["@id", "title", "parent", "definition", "longDefinition", "synonym", "inclusion", "exclusion"] # la foundation non ha "source" né "indexTerm" (ha "synonym" al posto suo), mi interessano solo quei campi che devo andare a confrontare con l'mms
  
 lookup_titoli = create_lookup_title(foundation_full_data=foundation_data, mms_full_data=mms_data)
+lookup_link = create_lookup_link(lookup_titoli)
+
 print(f"lookup creato - trovati {len(lookup_titoli)} titoli")
  
-data_mms_interest = select_information(dataset=mms_data, fields_to_extract=fields_of_interest_mms, lookup_title=lookup_titoli)
-data_foundation_interest = select_information(dataset=foundation_data, fields_to_extract=fields_of_interest_foundation, lookup_title=lookup_titoli)
+data_mms_interest = select_information(dataset=mms_data, fields_to_extract=fields_of_interest_mms, lookup_title=lookup_titoli, lookup_link=lookup_link)
+data_foundation_interest = select_information(dataset=foundation_data, fields_to_extract=fields_of_interest_foundation, lookup_title=lookup_titoli, lookup_link=lookup_link)
  
 data_mmms_foundation = add_information(data_mms_interest, data_foundation_interest)
 
