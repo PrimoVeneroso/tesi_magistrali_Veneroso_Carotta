@@ -7,6 +7,7 @@ Repository dedicato alla pipeline di elaborazione, normalizzazione e modellazion
 ##  Obiettivi e Fasi del Progetto (al momento)
 
 1. Estrazione e parsing dati ottenuti tramite i servizi containerizzati ufficiali dell'OMS (Docker) e parsing.
+Updated upstream
 2. Fusione e ormalizzazione dei due dataset.
 
    L'obiettivo di questa fase è arricchire il dataset MMS di base integrandolo con le informazioni aggiuntive presenti nel dataset Foundation, evitando duplicati. La logica di unione prevede:
@@ -57,6 +58,9 @@ Repository dedicato alla pipeline di elaborazione, normalizzazione e modellazion
 * **`EF` (Entità Foundation Only)**: Nodi ontologici appartenenti unicamente alla Foundation Component, privi di codice statistico MMS primario, ma fungenti da collegamento concettuale o entità progenitrici/discendenti non linearizzate.
 * **`EE` (Entità Esterne / Indici e Sinonimi Privi di URI)**: Lemmi diagnostici, descrittori lessicali, varianti sinonimiche e modificatori postcoordinativi estratti dagli array di indicizzazione (`indexTerms`, `synonyms`) che non corrispondono ad alcun URI formale all'interno del grafo primario.   
     
+=======
+2. Fusione e normalizzazione dei due dataset.
+3. Modellazione relazionale (ER), definizione dello schema concettuale e logico per la memorizzazione strutturata su PostgreSQL.
 4. Embedding e vettorializzazione dei dati per rappresentarli attraverso dei vettoriali
 
 ---
@@ -72,3 +76,35 @@ A causa delle limitazioni dimensionali imposte da GitHub, i dump JSON intermedi 
 | `fusione_con_campi_mancanti.json` | ~87 MB | merge dei due dataset | [Download Risorsa](https://drive.google.com/file/d/1DtW2znWHLLoROAp1HY3sD9OE11akLhXB/view?usp=drive_link)|
 
 ---
+
+## Tassonomia delle Entità e Architettura del Modello Dati
+Dato che alcune istanze sono presenti solo in uno dei due dataset oppure vengono citate unicamnete come str (es per i sinonimi), per lo sviluppo dell'ER data si definisce la seguente definizione delle entità:
+
+```
+                          ┌──────────────────────────┐
+                          │   ENTITÀ ICD-11 GLOBALI  │
+                          └─────────────┬────────────┘
+                                        │
+             ┌──────────────────────────┼──────────────────────────┐
+             ▼                          ▼                          ▼
+  ┌─────────────────────┐    ┌─────────────────────┐    ┌─────────────────────┐
+  │         EM          │    │         EF          │    │         EE          │
+  │   (Entità MMS +     │    │  (Entità Foundation │    │   (Entità Esterne / │
+  │    Foundation)      │    │        Only)        │    │    Index & Synonym) │
+  └─────────────────────┘    └─────────────────────┘    └─────────────────────┘
+
+```
+
+* **`EM` (Entità MMS / Fusa)**: Concetti ontologici presenti nella linearizzazione MMS, ma non tutti  provvisti di corrispondenza nella Foundation(es. gli other o gli unspecified che hanno un codice ICD ma non un'entità nel grafo e vengono generati unicamente durante la linearizzazione). Possiedono codifica nosologica alfanumerica, URI Foundation e `browserUrl` MMS.
+* **`EF` (Entità Foundation Only)**: Nodi ontologici appartenenti unicamente alla Foundation Component, privi di codice statistico MMS primario, ma fungenti da collegamento concettuale o entità progenitrici/discendenti non linearizzate.
+* **`EE` (Entità Esterne / Indici e Sinonimi Privi di URI)**: Lemmi diagnostici, descrittori lessicali, varianti sinonimiche e modificatori postcoordinativi estratti dagli array di indicizzazione (`indexTerms`, `synonyms`) che non corrispondono ad alcun URI formale all'interno del grafo primario.
+
+
+```
+===================================================================================
+                                 PROBLEMI
+===================================================================================
+
+```
+
+
