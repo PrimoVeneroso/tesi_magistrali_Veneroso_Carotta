@@ -8,6 +8,7 @@ Repository dedicato alla pipeline di elaborazione, normalizzazione e modellazion
 
 1. Estrazione e parsing dati ottenuti tramite i servizi containerizzati ufficiali dell'OMS (Docker) e parsing.
 2. Fusione e ormalizzazione dei due dataset.
+
    L'obiettivo di questa fase è arricchire il dataset MMS di base integrandolo con le informazioni aggiuntive presenti nel dataset Foundation, evitando duplicati. La logica di unione prevede:
    * **Selezione e normalizzazione:** per ogni dataset vengono filtrate solo le classi di interesse e, per semplificare la struttura, si estrae direttamente il valore testuale (es. il contenuto della chiave `@value`) scartando l'intero dizionario originale.
    * **Arricchimento (Merge):** partendo dalla base MMS, si aggiungono i dati esclusivi della Foundation. Ad esempio, si confrontano i `parent` (creando un campo `other_parent`/`parent_foundation` per i genitori multipli della Foundation), si conservano entrambe le `definition` in caso di discordanza, e si uniscono `indexTerm` (MMS), i `synonym` (Foundation) e le `inclusion` (MMS e Foundation) in un unico campo consolidato privo di ripetizioni.
@@ -29,14 +30,16 @@ Repository dedicato alla pipeline di elaborazione, normalizzazione e modellazion
    * **`postCoordinationScale`**: informazioni sulle scale di post-coordinazione (Lista di dizionari).
    * **`codingNote`**: note su come usare il codice, informazione estratta dalla chiave `@value` (Stringa).
 
-3. Modellazione relazionale (ER), definizione dello schema concettuale e logico per la memorizzazione strutturata su PostgreSQL.
+4. Modellazione relazionale (ER), definizione dello schema concettuale e logico per la memorizzazione strutturata su PostgreSQL.
    La sfida principale in questa fase è la definizione delle chiavi e delle relazioni, poiché manca un URI universale utilizzabile come ID univoco assoluto. 
   Molti elementi presentano asimmetrie: alcuni sinonimi sono privi di reference, mentre diverse entità esistono esclusivamente nel dataset Foundation o solo in quello MMS. 
    Sarà quindi necessario prendere una decisione architetturale cruciale: 
    * Generare e assegnare un nuovo **ID univoco sintetico** (surrogate key) a livello di database per mantenere tutti i dati consolidati in un'unica struttura coerente?
    * Oppure dividere e normalizzare i dati in tabelle separate? (vedi Tassonomia delle Entità e Architettura del Modello Dati)
+  
+   
     
-4. Embedding e vettorializzazione dei dati per rappresentarli attraverso dei vettoriali
+5. Embedding e vettorializzazione dei dati per rappresentarli attraverso dei vettoriali
 
 ---
 
