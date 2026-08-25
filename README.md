@@ -70,9 +70,9 @@ A causa delle limitazioni dimensionali imposte da GitHub, i dump JSON intermedi 
 
 | Risorsa | Dimensione Approssimativa | Descrizione | Download Primo | Download Federica |
 | :--- | :--- | :--- | :--- | :--- |
-| `mms_completo.json` | ~70/45 MB | Dump integrale della linearizzazione MMS | [Download Primo](https://drive.google.com/file/d/1n1QZtD0xo4Fc0ybf5CSfL9wirnpT9Cnw/view?usp=drive_link) | [Download Federica](https://drive.google.com/file/d/13y-OjEhNrhZmHvwCnW6JB5bqCsDMbNRg/view?usp=sharing) |
-| `icd11_foundation_completo.json` | ~50/60 MB | Dump integrale della Foundation | [Download Primo](https://drive.google.com/file/d/13VLy0HJjoTiamg-m80_612Xzs53qo7OF/view?usp=drive_link) | [Download Federica](https://drive.google.com/file/d/13y-OjEhNrhZmHvwCnW6JB5bqCsDMbNRg/view?usp=sharing) |
-| `fusione_con_campi_mancanti.json` | ~87MB/1GB | merge dei due dataset | [Download Primo](https://drive.google.com/file/d/1YNA6ffvtgXQdevWvzx2XNWP5maRKdjG9/view?usp=sharings) | [Download Federica](https://drive.google.com/file/d/1NaJQ45s2uLXIX7fNncq6SwvYI3llsbYo/view?usp=sharing) |
+| `mms_completo.json`\`icd11_mms_full.json` | ~70/45 MB | Dump integrale della linearizzazione MMS | [Download Primo](https://drive.google.com/file/d/1n1QZtD0xo4Fc0ybf5CSfL9wirnpT9Cnw/view?usp=drive_link) | [Download Federica](https://drive.google.com/file/d/13y-OjEhNrhZmHvwCnW6JB5bqCsDMbNRg/view?usp=sharing) |
+| `icd11_foundation_completo.json`\`icd11_foundation_full.json` | ~50/60 MB | Dump integrale della Foundation | [Download Primo](https://drive.google.com/file/d/13VLy0HJjoTiamg-m80_612Xzs53qo7OF/view?usp=drive_link) | [Download Federica](https://drive.google.com/file/d/13y-OjEhNrhZmHvwCnW6JB5bqCsDMbNRg/view?usp=sharing) |
+| `fusione_con_campi_mancanti.json`\`icd11_dati_uniti.json` | ~87MB/1GB | merge dei due dataset | [Download Primo](https://drive.google.com/file/d/1YNA6ffvtgXQdevWvzx2XNWP5maRKdjG9/view?usp=sharings) | [Download Federica](https://drive.google.com/file/d/1NaJQ45s2uLXIX7fNncq6SwvYI3llsbYo/view?usp=sharing) |
 ---
 
 
