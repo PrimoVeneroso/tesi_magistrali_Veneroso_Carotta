@@ -8,7 +8,7 @@ Repository dedicato alla pipeline di elaborazione, normalizzazione e modellazion
 
 1. Estrazione e parsing dati ottenuti tramite i servizi containerizzati ufficiali dell'OMS (Docker) e parsing.
 Updated upstream
-2. Fusione e ormalizzazione dei due dataset.
+2. Fusione e normalizzazione dei due dataset.
 
    L'obiettivo di questa fase è arricchire il dataset MMS di base integrandolo con le informazioni aggiuntive presenti nel dataset Foundation, evitando duplicati. La logica di unione prevede:
    * **Selezione e normalizzazione:** per ogni dataset vengono filtrate solo le classi di interesse e, per semplificare la struttura, si estrae direttamente il valore testuale (es. il contenuto della chiave `@value`) scartando l'intero dizionario originale.
@@ -87,3 +87,4 @@ A causa delle limitazioni dimensionali imposte da GitHub, i dump JSON intermedi 
 - Problemi generici nel corso della stesura degli script:
    - come articolare la puliza del dataset (quali dati togliere e quali tenere, quali link usare)
    - come normalizzarlo (quante enetità sono davvero Esterne, come lo controllo se ho sbglaito o meno?)
+   - generalizzazione a altre versioni ??
