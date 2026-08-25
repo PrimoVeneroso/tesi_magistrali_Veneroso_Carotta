@@ -67,12 +67,12 @@ Updated upstream
 
 A causa delle limitazioni dimensionali imposte da GitHub, i dump JSON intermedi e finali generati sono ospitati su drive esterni.
 
-| Risorsa | Dimensione Approssimativa | Descrizione | Link di Download |
-| :--- | :--- | :--- | :--- |
-| `mms_completo.json` | ~70 MB | Dump integrale della linearizzazione MMS | [Download Risorsa](https://drive.google.com/file/d/1n1QZtD0xo4Fc0ybf5CSfL9wirnpT9Cnw/view?usp=drive_link) |
-| `icd11_foundation_completo.json` | ~50 MB | Dump integrale della Foundation | [Download Risorsa](https://drive.google.com/file/d/13VLy0HJjoTiamg-m80_612Xzs53qo7OF/view?usp=drive_link) |
-| `fusione_con_campi_mancanti.json` | ~87 MB | merge dei due dataset | [Download Risorsa](https://drive.google.com/file/d/1YNA6ffvtgXQdevWvzx2XNWP5maRKdjG9/view?usp=sharings)|
 
+| Risorsa | Dimensione Approssimativa | Descrizione | Download Primo | Download Federica |
+| :--- | :--- | :--- | :--- | :--- |
+| `mms_completo.json` | ~70/45 MB | Dump integrale della linearizzazione MMS | [Download Primo](https://drive.google.com/file/d/1n1QZtD0xo4Fc0ybf5CSfL9wirnpT9Cnw/view?usp=drive_link) | [Download Federica](https://drive.google.com/file/d/13y-OjEhNrhZmHvwCnW6JB5bqCsDMbNRg/view?usp=sharing) |
+| `icd11_foundation_completo.json` | ~50/60 MB | Dump integrale della Foundation | [Download Primo](https://drive.google.com/file/d/13VLy0HJjoTiamg-m80_612Xzs53qo7OF/view?usp=drive_link) | [Download Federica](https://drive.google.com/file/d/13y-OjEhNrhZmHvwCnW6JB5bqCsDMbNRg/view?usp=sharing) |
+| `fusione_con_campi_mancanti.json` | ~87MB/1GB | merge dei due dataset | [Download Primo](https://drive.google.com/file/d/1YNA6ffvtgXQdevWvzx2XNWP5maRKdjG9/view?usp=sharings) | [Download Federica](https://drive.google.com/file/d/1NaJQ45s2uLXIX7fNncq6SwvYI3llsbYo/view?usp=sharing) |
 ---
 
 
