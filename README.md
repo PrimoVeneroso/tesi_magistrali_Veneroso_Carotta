@@ -31,15 +31,35 @@ Repository dedicato alla pipeline di elaborazione, normalizzazione e modellazion
    * **`codingNote`**: note su come usare il codice, informazione estratta dalla chiave `@value` (Stringa).
 
 4. Modellazione relazionale (ER), definizione dello schema concettuale e logico per la memorizzazione strutturata su PostgreSQL.
+
    La sfida principale in questa fase è la definizione delle chiavi e delle relazioni, poiché manca un URI universale utilizzabile come ID univoco assoluto. 
   Molti elementi presentano asimmetrie: alcuni sinonimi sono privi di reference, mentre diverse entità esistono esclusivamente nel dataset Foundation o solo in quello MMS. 
    Sarà quindi necessario prendere una decisione architetturale cruciale: 
    * Generare e assegnare un nuovo **ID univoco sintetico** (surrogate key) a livello di database per mantenere tutti i dati consolidati in un'unica struttura coerente?
    * Oppure dividere e normalizzare i dati in tabelle separate? (vedi Tassonomia delle Entità e Architettura del Modello Dati)
   
-   
+Dato che alcune istanze sono presenti solo in uno dei due dataset oppure vengono citate unicamnete come str (es per i sinonimi), per lo sviluppo dell'ER data si definisce la seguente definizione delle entità:
+
+```
+                          ┌──────────────────────────┐
+                          │   ENTITÀ ICD-11 GLOBALI  │
+                          └─────────────┬────────────┘
+                                        │
+             ┌──────────────────────────┼──────────────────────────┐
+             ▼                          ▼                          ▼
+  ┌─────────────────────┐    ┌─────────────────────┐    ┌─────────────────────┐
+  │         EM          │    │         EF          │    │         EE          │
+  │   (Entità MMS +     │    │  (Entità Foundation │    │   (Entità Esterne / │
+  │    Foundation)      │    │        Only)        │    │    Index & Synonym) │
+  └─────────────────────┘    └─────────────────────┘    └─────────────────────┘
+
+```
+
+* **`EM` (Entità MMS / Fusa)**: Concetti ontologici presenti nella linearizzazione MMS, ma non tutti  provvisti di corrispondenza nella Foundation(es. gli other o gli unspecified che hanno un codice ICD ma non un'entità nel grafo e vengono generati unicamente durante la linearizzazione). Possiedono codifica nosologica alfanumerica, URI Foundation e `browserUrl` MMS.
+* **`EF` (Entità Foundation Only)**: Nodi ontologici appartenenti unicamente alla Foundation Component, privi di codice statistico MMS primario, ma fungenti da collegamento concettuale o entità progenitrici/discendenti non linearizzate.
+* **`EE` (Entità Esterne / Indici e Sinonimi Privi di URI)**: Lemmi diagnostici, descrittori lessicali, varianti sinonimiche e modificatori postcoordinativi estratti dagli array di indicizzazione (`indexTerms`, `synonyms`) che non corrispondono ad alcun URI formale all'interno del grafo primario.   
     
-5. Embedding e vettorializzazione dei dati per rappresentarli attraverso dei vettoriali
+6. Embedding e vettorializzazione dei dati per rappresentarli attraverso dei vettoriali
 
 ---
 
