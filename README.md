@@ -57,7 +57,7 @@ Repository dedicato alla pipeline di elaborazione, normalizzazione e modellazion
 * **`EF` (Entità Foundation Only)**: Nodi ontologici appartenenti unicamente alla Foundation Component, privi di codice statistico MMS primario, ma fungenti da collegamento concettuale o entità progenitrici/discendenti non linearizzate.
 * **`EE` (Entità Esterne / Indici e Sinonimi Privi di URI)**: Lemmi diagnostici, descrittori lessicali, varianti sinonimiche e modificatori postcoordinativi estratti dagli array di indicizzazione (`indexTerms`, `synonyms`) che non corrispondono ad alcun URI formale all'interno del grafo primario.   
     
-6. Embedding e vettorializzazione dei dati per rappresentarli attraverso dei vettoriali
+4. Embedding e vettorializzazione dei dati per rappresentarli attraverso dei vettoriali
 
 ---
 
