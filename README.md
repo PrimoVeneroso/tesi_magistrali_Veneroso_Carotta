@@ -8,7 +8,34 @@ Repository dedicato alla pipeline di elaborazione, normalizzazione e modellazion
 
 1. Estrazione e parsing dati ottenuti tramite i servizi containerizzati ufficiali dell'OMS (Docker) e parsing.
 2. Fusione e ormalizzazione dei due dataset.
+   L'obiettivo di questa fase è arricchire il dataset MMS di base integrandolo con le informazioni aggiuntive presenti nel dataset Foundation, evitando duplicati. La logica di unione prevede:
+   * **Selezione e normalizzazione:** per ogni dataset vengono filtrate solo le classi di interesse e, per semplificare la struttura, si estrae direttamente il valore testuale (es. il contenuto della chiave `@value`) scartando l'intero dizionario originale.
+   * **Arricchimento (Merge):** partendo dalla base MMS, si aggiungono i dati esclusivi della Foundation. Ad esempio, si confrontano i `parent` (creando un campo `other_parent`/`parent_foundation` per i genitori multipli della Foundation), si conservano entrambe le `definition` in caso di discordanza, e si uniscono `indexTerm` (MMS), i `synonym` (Foundation) e le `inclusion` (MMS e Foundation) in un unico campo consolidato privo di ripetizioni.
+
+   -- Campi di Interesse (Dataset MMS) selezionati e normalizzati:
+   * **`@id`**: solo link univoco MMS dell'entità (Stringa/URL).
+   * **`title`**: nome dell'entità, estratto dal dizionario sotto la chiave `@value` (Stringa).
+   * **`code`**: codice identificativo MMS (Testo).
+   * **`source`**: solo link di riferimento all'entità corrispondente nella Foundation (Stringa/URL).
+   * **`definition`** e **`longDefinition`**: testo della definizione, estratto dalla chiave `@value` (Stringa).
+   * **`parent`** (e **`other_parent`/`parent_foundation`**): link MMS dell'entità padre. Durante l'unione viene creato `other_parent`/`parent_foundation` per accogliere eventuali padri multipli provenienti dalla Foundation (Link / Lista di Link).
+   * **`child`**: lista dei link MMS diretti alle entità figlie (Lista di URL).
+   * **`foundationChildElsewhere`**: rappresentazione dei figli nella Foundation che si trovano altrove nella gerarchia MMS (Lista di dizionari con label, foundationReference, linearizationReference).
+   * **`indexTerm`** (MMS) / **`synonym`** (FOUND): campo unificato senza ripetizioni che raggruppa i termini di indicizzazione e i sinonimi (Lista di link).
+   * **`inclusion`**: elenco delle condizioni/termini inclusi nella classificazione di quel codice (Lista di dizionari).
+   * **`exclusion`**: elenco delle condizioni/termini esclusi dalla classificazione di quel codice (Lista di dizionari).
+   * **`relatedEntitiesInMaternalChapter`** e **`relatedEntitiesInPerinatalChapter`**: riferimenti a entità correlate nei capitoli materno o perinatale (Lista di link FOUND).
+   * **`classKind`**: tipologia di classe dell'entità, ad esempio "chapter", "block", "category", "window" (Testo).
+   * **`postCoordinationScale`**: informazioni sulle scale di post-coordinazione (Lista di dizionari).
+   * **`codingNote`**: note su come usare il codice, informazione estratta dalla chiave `@value` (Stringa).
+
 3. Modellazione relazionale (ER), definizione dello schema concettuale e logico per la memorizzazione strutturata su PostgreSQL.
+   La sfida principale in questa fase è la definizione delle chiavi e delle relazioni, poiché manca un URI universale utilizzabile come ID univoco assoluto. 
+  Molti elementi presentano asimmetrie: alcuni sinonimi sono privi di reference, mentre diverse entità esistono esclusivamente nel dataset Foundation o solo in quello MMS. 
+   Sarà quindi necessario prendere una decisione architetturale cruciale: 
+   * Generare e assegnare un nuovo **ID univoco sintetico** (surrogate key) a livello di database per mantenere tutti i dati consolidati in un'unica struttura coerente?
+   * Oppure dividere e normalizzare i dati in tabelle separate? (vedi Tassonomia delle Entità e Architettura del Modello Dati)
+    
 4. Embedding e vettorializzazione dei dati per rappresentarli attraverso dei vettoriali
 
 ---
