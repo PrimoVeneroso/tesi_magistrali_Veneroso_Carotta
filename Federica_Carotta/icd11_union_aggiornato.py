@@ -101,6 +101,35 @@ def create_lookup_link(lookup_title): # lookup inverso
             
     return lookup_link
 
+#funzione che dato un URL risolve il titolo e usa quel titolo in lookuplink per cercare anche il link della linearizzazione
+def resolve_title_and_references(url, lookup_title, lookup_link):
+    if url in lookup_title:
+        title_found = lookup_title[url]
+    else:
+        url_parts = url.rstrip('/').split('/')
+        last_element = url_parts[-1]
+        if last_element in ["other", "unspecified"]:
+            entity_id = f"{url_parts[-2]}/{last_element}"
+        else:
+            entity_id = last_element
+
+        title_found = "Nodo radice ICD-11" if entity_id == "mms" else "Titolo mancante"
+
+    # la reference che abbiamo già, quella dell'url di partenza
+    foundation_ref = url if "/entity/" in url else ""
+    linearization_ref = url if "/entity/" not in url else ""
+
+    # ora cerco l'ALTRA reference passando dal titolo
+    title_norm = title_found.strip().lower()
+    if title_norm in lookup_link:
+        refs_found = lookup_link[title_norm]
+        if not foundation_ref and refs_found["foundationReference"]:
+            foundation_ref = refs_found["foundationReference"]
+        if not linearization_ref and refs_found["linearizationReference"]:
+            linearization_ref = refs_found["linearizationReference"]
+
+    return title_found, foundation_ref, linearization_ref    
+        
 #### funzione per selezionare che informazioni prendere di quelle che ho estratto
 def select_information(dataset, fields_to_extract, lookup_title=None,lookup_link=None, nome_dataset=""):
 
@@ -128,31 +157,13 @@ def select_information(dataset, fields_to_extract, lookup_title=None,lookup_link
                 processed_list = [] # creo una nuova lista dove mettere le info che mi interessano
 
                 if chiave == "postcoordinationScale":
-                    for scale_item in valore:
-                        scale_entity_list = []
-                        for entity_url in scale_item.get("scaleEntity", []):
-                            if entity_url in lookup_title:
-                                title_found = lookup_title[entity_url]
-                            else:
-                                url_parts = entity_url.rstrip('/').split('/')
-                                last_element = url_parts[-1]
-                                if last_element in ["other", "unspecified"]:
-                                    entity_id = f"{url_parts[-2]}/{last_element}"
-                                else:
-                                    entity_id = last_element
-
-                                if entity_id == "mms":
-                                    title_found = "Nodo radice ICD-11"
-                                else:
-                                    title_found = "Titolo mancante"
-
-                            chiave_ref = "foundationReference" if "/entity/" in entity_url else "linearizationReference"
-
-                            scale_entity_list.append({
-                                "title": title_found,
-                                chiave_ref: entity_url
-                            })
-
+                    for entity_url in scale_item.get("scaleEntity", []):
+                        title_found, foundation_ref, linearization_ref = resolve_title_and_references (entity_url, lookup_title, lookup_link)
+                        scale_entity_list.append({
+                            "title": title_found,
+                            "foundationReference": foundation_ref,
+                            "linearizationReference": linearization_ref
+                        })
                         processed_list.append({
                             "@id": scale_item.get("@id", ""),
                             "requiredPostcoordination": scale_item.get("requiredPostcoordination", ""),
@@ -164,29 +175,13 @@ def select_information(dataset, fields_to_extract, lookup_title=None,lookup_link
                     for element_list in valore: # per ogni elemento vado a vedere di che tipo è: 
                         if isinstance(element_list,str): # se è una stringa, allora devo fare due cose (anche se so già che quasi sempre un link, ma meglio verificarlo)
                             if element_list.startswith("http"): #se l'elemento è un link, allora prima lo cerco nel mio lookup_title, se lo trovo allora salva il titolo associato --> così poi potrò avere titolo e link
-                                if element_list in lookup_title:
-                                    title_found = lookup_title[element_list]
-                                else: 
-                                    url_parts = element_list.rstrip('/').split('/') #se l'elemento è un link ma non è nel mio lookup_title, allora rimuove gli slash finali, spezza l'url in una lista di parole ogni volta che incontra uno slash e salva 
-                                    last_element = url_parts[-1]
-                                    if last_element in ["other", "unspecified"]:
-                                        entity_id = f"{url_parts[-2]}/{last_element}" #così salvo l'ID/other o unspecified per non confonderli con l'elemeneto che ha solo lo stesso id
-                                    else: 
-                                        entity_id = last_element
-
-                                    if entity_id == "mms": #invece del numero ID ci potrebbere essere mms se siamo alla radice 
-                                        title_found = "Nodo radice ICD-11"
-                                    else: 
-                                        title_found = "Titolo mancante" #alla fine si arrende 
-
-                                chiave_ref = "foundationReference" if "/entity/" in element_list else "linearizationReference" #se trova entity nella parola è una foundationReference, altrimenti una linearizationReference --
-                            
+                                title_found, foundation_ref, linearization_ref = resolve_title_and_references (entity_url, lookup_title, lookup_link)
                                 processed_list.append({
-                                "title": title_found,
-                                chiave_ref: element_list
+                                    "title": title_found,
+                                    "foundationReference": foundation_ref,
+                                    "linearizationReference": linearization_ref
                                 })
-
-                            else: 
+                            else:
                                 processed_list.append(element_list)
                         
                         elif isinstance(element_list,dict): # nel caso in cui invece avessimo a che fare con un dizionario (vedi il caso indexTerm)
@@ -236,7 +231,7 @@ def confronta_text(mms_text, found_text): #testo mms e testo foundation
 
 ## funzione per confronto di liste con title e reference (exclusions)
 def confronta_list(mms_list, found_list, entity_title=""):
-    titles_norm = [] #lista per mettere i titoli già incontrati
+    titles_norm = set() #set per mettere i titoli già incontrati, meglio set che lista
     list_fin = [] #lista finale
     entity_title_norm = entity_title.strip().lower() if entity_title else ""
 
@@ -267,7 +262,7 @@ def confronta_list(mms_list, found_list, entity_title=""):
         if title_norm == entity_title_norm and entity_title_norm:
             continue
 
-        if title not in titles_norm:
+        if title_norm not in titles_norm:
             list_fin.append(element)
             titles_norm.append(title_norm)
         
