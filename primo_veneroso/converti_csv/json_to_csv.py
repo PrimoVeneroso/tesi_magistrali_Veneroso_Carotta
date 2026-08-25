@@ -1,6 +1,6 @@
 import pandas as pd
 import json
-import openpyxl
+
 
 with open ('/home/primo/Scaricati/ICD11_progetto/mms/mms_completo.json','r',encoding='utf-8') as f:
     data=json.load(f)

@@ -42,7 +42,7 @@ campi_contenenti_esterni=set()
 for item in data:
 
     for key in campi_da_controllare:
-        #print(key)
+
         valore_temp=item.get(key,"") 
 
         if len(valore_temp)>0: #controllo che non sia vuota

@@ -1,8 +1,8 @@
 import requests, json
 from collections import deque
 
-BASE_LOCAL = "http://localhost"        # host:porta del tuo container
-CANONICAL_HOST = "http://id.who.int"   # host usato negli URI restituiti dall'API
+BASE_LOCAL = "http://localhost"
+CANONICAL_HOST = "http://id.who.int"
 
 HEADERS = {
     "Accept": "application/json",
@@ -46,7 +46,7 @@ def crawl(root_uri):
     return entities
 
 if __name__ == "__main__":
-    # controlla nel browser quale release è caricata e aggiorna qui
+
     root = "http://id.who.int/icd/entity"
 
     entities = crawl(root)
