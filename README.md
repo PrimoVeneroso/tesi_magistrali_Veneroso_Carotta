@@ -36,10 +36,8 @@ Repository dedicato alla pipeline di elaborazione, normalizzazione e modellazion
   Molti elementi presentano asimmetrie: alcuni sinonimi sono privi di reference, mentre diverse entità esistono esclusivamente nel dataset Foundation o solo in quello MMS. 
    Sarà quindi necessario prendere una decisione architetturale cruciale: 
    * Generare e assegnare un nuovo **ID univoco sintetico** (surrogate key) a livello di database per mantenere tutti i dati consolidati in un'unica struttura coerente?
-   * Oppure dividere e normalizzare i dati in tabelle separate? (vedi Tassonomia delle Entità e Architettura del Modello Dati)
+   * Oppure dividere e normalizzare i dati in tabelle separate? (vedi schema sotto)
   
-Dato che alcune istanze sono presenti solo in uno dei due dataset oppure vengono citate unicamnete come str (es per i sinonimi), per lo sviluppo dell'ER data si definisce la seguente definizione delle entità:
-
 ```
                           ┌──────────────────────────┐
                           │   ENTITÀ ICD-11 GLOBALI  │
