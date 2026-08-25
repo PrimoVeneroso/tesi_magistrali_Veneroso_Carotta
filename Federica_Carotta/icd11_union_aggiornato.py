@@ -157,25 +157,28 @@ def select_information(dataset, fields_to_extract, lookup_title=None,lookup_link
                 processed_list = [] # creo una nuova lista dove mettere le info che mi interessano
 
                 if chiave == "postcoordinationScale":
-                    for entity_url in scale_item.get("scaleEntity", []):
-                        title_found, foundation_ref, linearization_ref = resolve_title_and_references (entity_url, lookup_title, lookup_link)
-                        scale_entity_list.append({
-                            "title": title_found,
-                            "foundationReference": foundation_ref,
-                            "linearizationReference": linearization_ref
-                        })
-                        processed_list.append({
-                            "@id": scale_item.get("@id", ""),
-                            "requiredPostcoordination": scale_item.get("requiredPostcoordination", ""),
-                            "allowMultipleValues": scale_item.get("allowMultipleValues", ""),
-                            "scaleEntity": scale_entity_list
-                        })
+                    for scale_item in valore:
+                        scale_entity_list=[]
+
+                        for entity_url in scale_item.get("scaleEntity", []):
+                            title_found, foundation_ref, linearization_ref = resolve_title_and_references (entity_url, lookup_title, lookup_link)
+                            scale_entity_list.append({
+                                "title": title_found,
+                                "foundationReference": foundation_ref,
+                                "linearizationReference": linearization_ref
+                            })
+                            processed_list.append({
+                                "@id": scale_item.get("@id", ""),
+                                "requiredPostcoordination": scale_item.get("requiredPostcoordination", ""),
+                                "allowMultipleValues": scale_item.get("allowMultipleValues", ""),
+                                "scaleEntity": scale_entity_list
+                            })
 
                 else: 
                     for element_list in valore: # per ogni elemento vado a vedere di che tipo è: 
                         if isinstance(element_list,str): # se è una stringa, allora devo fare due cose (anche se so già che quasi sempre un link, ma meglio verificarlo)
                             if element_list.startswith("http"): #se l'elemento è un link, allora prima lo cerco nel mio lookup_title, se lo trovo allora salva il titolo associato --> così poi potrò avere titolo e link
-                                title_found, foundation_ref, linearization_ref = resolve_title_and_references (entity_url, lookup_title, lookup_link)
+                                title_found, foundation_ref, linearization_ref = resolve_title_and_references (element_list, lookup_title, lookup_link)
                                 processed_list.append({
                                     "title": title_found,
                                     "foundationReference": foundation_ref,
@@ -249,7 +252,7 @@ def confronta_list(mms_list, found_list, entity_title=""):
         
         if title_norm not in titles_norm: #controllo non sia già nella lista di titoli incontrato, se è nuovo lo aggiungo sia alla lista finale che alla lista di controllo
             list_fin.append(element)
-            titles_norm.append(title_norm)
+            titles_norm.add(title_norm)
 
 
     for element in found_list: #stessa cosa, ma passando ora la foundation, mi aggiugnerà alla lista finale SOLO quelli che non si ripetono
@@ -264,7 +267,7 @@ def confronta_list(mms_list, found_list, entity_title=""):
 
         if title_norm not in titles_norm:
             list_fin.append(element)
-            titles_norm.append(title_norm)
+            titles_norm.add(title_norm)
         
     return list_fin
 
