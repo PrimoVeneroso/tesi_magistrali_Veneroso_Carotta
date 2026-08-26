@@ -76,7 +76,9 @@ def create_lookup_title(foundation_full_data, mms_full_data):
 
     return lookup_title
 
-# funzione per invertire il lookup, quindi avere dizionari con chiave titolo e valore dizionario con chiavi foundreference e linearizationreference e i rispettivi links)
+## funzione per invertire il lookup, quindi avere dizionari con chiave titolo e valore dizionario con chiavi foundreference e linearizationreference e i rispettivi links 
+    # quindi è un dato più pulito perché non ho ripetizioni dei titoli come valori per due chiavi-link diverse, ma un solo titolo e i due link
+    # vedere se posso tenere solo questo
 def create_lookup_link(lookup_title):  
     lookup_link = {}
     
@@ -128,31 +130,32 @@ def resolve_title_and_references(url, lookup_title, lookup_link):
 
     return title_found, foundation_ref, linearization_ref    
         
-#### funzione per selezionare che informazioni prendere di quelle che ho estratto
+### funzione per selezionare che informazioni prendere dai campi che ho estratto e aggiungere le reference\titoli mancanti 
 def select_information(dataset, fields_to_extract, lookup_title=None,lookup_link=None, nome_dataset=""):
 
     if lookup_title is None: 
         lookup_title = {}
     if lookup_link is None:
         lookup_link = {}
-    
-    extracted_data = extract_data1(dataset, fields_to_extract) ## uso la funzione di prima per estrarre intanto le info dei campi che mi interessano 
+        
+    #uso la funzione di prima per estrarre intanto le info dei campi che mi interessano
+    extracted_data = extract_data1(dataset, fields_to_extract)  
 
     selected_data = [] # creo una lista dove andrò a mettere le mie informazioni
 
-    for element in extracted_data: # quindi per ogni elemento (che è un dizionario) di quelli estratti, creo un nuovo dizionario 
+    for element in extracted_data: # per ogni elemento (dict) di quelli estratti, creo un nuovo dizionario 
         processed_element = {} 
 
         for chiave, valore in element.items(): # per ogni chiave e valore 
 
-            if isinstance (valore,str) or valore is None: # se il valore è una stringa, allora top tengo quel chiave:valore
+            if isinstance (valore,str) or valore is None: # se il valore è una stringa, allora tengo quel chiave:valore e aggiungo al nuovo dizionario 
                 processed_element[chiave] = valore
             
             elif isinstance (valore,dict): # se il valore è un dizionario, sappiamo che quello che ci interessa è il @value, quindi prendo solo il @value
                 processed_element[chiave] = valore.get("@value","")
 
-            elif isinstance (valore,list): # se il valore è una lista, allora l'elaborazione è un po' più complicata ... cioè si ricomincia 
-                processed_list = [] # creo una nuova lista dove mettere le info che mi interessano
+            elif isinstance (valore,list): # se il valore è una lista creo una nuova lista e uso la logica di sopra in base al tipo di chiave che incontro 
+                processed_list = [] 
 
                 if chiave == "postcoordinationScale":
                     for scale_item in valore:
