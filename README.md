@@ -30,6 +30,8 @@ Updated upstream
    * **`classKind`**: tipologia di classe dell'entità, ad esempio "chapter", "block", "category", "window" (Testo).
    * **`postCoordinationScale`**: informazioni sulle scale di post-coordinazione (Lista di dizionari).
    * **`codingNote`**: note su come usare il codice, informazione estratta dalla chiave `@value` (Stringa).
+   
+   -- Dove presenti solo link il dato è stato successivamente modificato in modo da avere sempre un dizionario con Title, foundationReference e linearizationReference
 
 3. Modellazione relazionale (ER), definizione dello schema concettuale e logico per la memorizzazione strutturata su PostgreSQL.
 
