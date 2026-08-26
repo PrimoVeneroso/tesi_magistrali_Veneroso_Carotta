@@ -1,6 +1,5 @@
 import json
 
-
 # Caricamento dei dataset in formato JSON
 with open("icd11_mms_full.json", "r", encoding="utf-8") as file:
     mms_data = json.load(file)
@@ -8,58 +7,55 @@ with open("icd11_mms_full.json", "r", encoding="utf-8") as file:
 with open("icd11_foundation_full.json", "r", encoding="utf-8") as f:
     foundation_data = json.load(f)
 
-
-### funzione di estrazione dei dati  
-def extract_data1(dataset, fields_to_extract): ## quindi qui poi chiamo la funzione con il mio dataset e i miei fields_of_interest
+## Funzione di estrazione dei dati (per campi di interesse) 
+def extract_data1(dataset, fields_to_extract): 
 
     if not fields_to_extract: # se non c'è il mio campo di interesse, allora niente
         return []
 
-    if isinstance(dataset, list): # se il dataset è una lista, creo una nuova lista dove metterò quello che mi interessa
+    if isinstance(dataset, list): # se il dataset è una lista, creo una nuova lista
         list_of_elements = []
 
         for element in dataset: # per ogni elemento nel dataset
             if isinstance(element, dict): # se l'elemento è un dizionario, creo un nuovo dizionario 
                     new_dict = {}
 
-                    for field in fields_to_extract: # per ogni campo, dei miei campi di interesse, se il campo è nell'elemento allora lo aggiugno al nuovo dizionario 
+                    for field in fields_to_extract: # per ogni campo dei miei campi di interesse, se il campo è nell'elemento allora lo aggiugno al nuovo dizionario 
                         if field in element:
                             new_dict[field] = element.get(field)
                     
-                    list_of_elements.append(new_dict) # e poi aggiungo i nuovi dizionari alla mia nuova lista
-        
+                    list_of_elements.append(new_dict) # e poi aggiungo i nuovi dizionari alla mia nuova lista   
         return list_of_elements
 
-    elif isinstance(dataset, dict): # se il dataset invece è un dizionario, allora creo un nuovo dizionario dove metterò quello che mi interessa
+    elif isinstance(dataset, dict): # se il dataset invece è un dizionario, allora creo un nuovo dizionario
         new_dict = {}
         for field in fields_to_extract: # per ogni campo quindi aggiungo al nuovo dizionario 
             new_dict[field] = dataset.get(field) 
-        
         return new_dict
 
-    else: # se il dataset non è nè una lista nè un dizionario (cosa che non dovrebbe essere, ma per stare certi lo mettiamo per evitare l'errore)
-        print("i dati non sono nè una lista nè un dizionario")
+    else: # se il dataset non è nè una lista nè un dizionario 
+        print("I dati non sono nè una lista nè un dizionario")
         return []
     
-### Funzione per creare un lookup per collegare ID - link di ogni elemento al suo titolo, prendendo i dati sia dalla Foundation che dall’MMS
+## Funzione per creare un lookup per collegare ID (link) di ogni elemento al suo titolo, prendendo i dati sia dalla Foundation che dall’MMS
 def create_lookup_title(foundation_full_data, mms_full_data):
     lookup_title = {}
 
     # aggiungo i titoli della foundation
-    for element_foundation in foundation_full_data: #per ogni elemeneto, recupero l'ID
+    for element_foundation in foundation_full_data: #per ogni elemento, recupero l'ID
         current_id_found = element_foundation.get("@id")
 
         if current_id_found: #se trovo l'ID, allora recupero il campo title 
             title_foundation_dict = element_foundation.get("title", {})
 
-            if isinstance(title_foundation_dict, dict): #se il title però è un dizionario, estraggo il value e associo il suo valore all'id
+            if isinstance(title_foundation_dict, dict): #se il title però è un dizionario, estraggo il valore della chiave @value (testo)
                 titolo_found = title_foundation_dict.get("@value", "")
                 lookup_title[current_id_found] = titolo_found
-            elif isinstance(title_foundation_dict, str): #se è una stringa 
+            elif isinstance(title_foundation_dict, str): #se è una stringa, estraggo semplicemente la stringa
                 lookup_title[current_id_found] = title_foundation_dict
 
     # aggiungo/sovrascrivo i titoli dell'mms allo stesso modo 
-    for mms_data in mms_full_data: #per ogni elemento prendo il titolo, se è dizionario estraggo value 
+    for element_mms in mms_full_data: #per ogni elemento prendo il titolo, se è dizionario estraggo il valore della chiave @value 
         title_mms_dict = mms_data.get("title", {})
         if not title_mms_dict:
             continue
@@ -69,17 +65,19 @@ def create_lookup_title(foundation_full_data, mms_full_data):
         else:
             titolo_mms = str(title_mms_dict)
 
-        current_mms_link = mms_data.get("@id") #estraggo anche l'id e associo con il titolo 
+        current_mms_link = mms_data.get("@id") #estraggo anche l'id e lo associo con il titolo 
         if current_mms_link: 
             lookup_title[current_mms_link] = titolo_mms
-        
-        current_source_uri = mms_data.get("source") #estraggo anche il campo source, e associo anche quello allo stesso titolo 
+
+        ### !!! forse questa parte è superflua perchè mi sa che li sovrascrive tutti quella della found 
+        current_source_uri = mms_data.get("source") #estraggo anche il campo source, e associo anche quello allo stesso titolo, in caso di duplicato con il link foundation lo sovrascrive  
         if current_source_uri: 
             lookup_title[current_source_uri] = titolo_mms 
 
     return lookup_title
 
-def create_lookup_link(lookup_title): # lookup inverso
+# funzione per invertire il lookup, quindi avere dizionari con chiave titolo e valore dizionario con chiavi foundreference e linearizationreference e i rispettivi links)
+def create_lookup_link(lookup_title):  
     lookup_link = {}
     
     for link, titolo in lookup_title.items():
@@ -101,7 +99,7 @@ def create_lookup_link(lookup_title): # lookup inverso
             
     return lookup_link
 
-#funzione che dato un URL risolve il titolo e usa quel titolo in lookuplink per cercare anche il link della linearizzazione
+## funzione che dato un URL risolve il titolo e usa quel titolo in lookuplink per cercare anche il link della linearizzazione
 def resolve_title_and_references(url, lookup_title, lookup_link):
     if url in lookup_title:
         title_found = lookup_title[url]
